@@ -67,22 +67,6 @@ export default function Index() {
               </Button>
             </div>
           </div>
-          
-          {/* Simple Stats */}
-          <div className="grid grid-cols-3 gap-8 text-center border-t border-b border-border py-8">
-            <div>
-              <div className="text-2xl font-medium mb-1">5+</div>
-              <div className="text-sm text-muted-foreground">Years</div>
-            </div>
-            <div>
-              <div className="text-2xl font-medium mb-1">50+</div>
-              <div className="text-sm text-muted-foreground">Projects</div>
-            </div>
-            <div>
-              <div className="text-2xl font-medium mb-1">100%</div>
-              <div className="text-sm text-muted-foreground">Success</div>
-            </div>
-          </div>
         </div>
       </section>
 
