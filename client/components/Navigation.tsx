@@ -26,7 +26,7 @@ export default function Navigation() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-xl font-light tracking-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Portfolio
+            Kris McNair
           </Link>
 
           {/* Desktop Navigation */}
