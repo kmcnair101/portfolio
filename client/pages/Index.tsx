@@ -13,25 +13,29 @@ const portfolioProjects = [
     title: "E-commerce Platform",
     description: "Full-stack online store with payment integration",
     tech: ["React", "Node.js", "Stripe"],
-    link: "#"
+    link: "#",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F10294e35110d4a3bb5c955b2f789c3ad%2F314c614a53d54a36a47ab7ebfac292d5"
   },
   {
-    title: "SaaS Dashboard", 
+    title: "SaaS Dashboard",
     description: "Analytics dashboard for subscription businesses",
     tech: ["TypeScript", "Next.js", "PostgreSQL"],
-    link: "#"
+    link: "#",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F10294e35110d4a3bb5c955b2f789c3ad%2F314c614a53d54a36a47ab7ebfac292d5"
   },
   {
     title: "Mobile App",
-    description: "Cross-platform productivity application", 
+    description: "Cross-platform productivity application",
     tech: ["React Native", "Firebase"],
-    link: "#"
+    link: "#",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F10294e35110d4a3bb5c955b2f789c3ad%2F314c614a53d54a36a47ab7ebfac292d5"
   },
   {
     title: "API Gateway",
     description: "Microservices architecture with authentication",
     tech: ["Node.js", "Express", "Redis"],
-    link: "#"
+    link: "#",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F10294e35110d4a3bb5c955b2f789c3ad%2F314c614a53d54a36a47ab7ebfac292d5"
   }
 ];
 
