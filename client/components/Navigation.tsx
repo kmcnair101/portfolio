@@ -43,6 +43,7 @@ export default function Navigation() {
                       ? "text-foreground border-foreground"
                       : "text-muted-foreground hover:text-foreground"
                   )}
+                  style={{ fontFamily: 'Playfair Display, serif' }}
                 >
                   {item.name}
                 </Link>
