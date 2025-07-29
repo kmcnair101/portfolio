@@ -13,6 +13,7 @@ import Payments from "./pages/Payments";
 import Marketing from "./pages/Marketing";
 import Analytics from "./pages/Analytics";
 import ClientPortal from "./pages/ClientPortal";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
