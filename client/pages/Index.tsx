@@ -48,14 +48,14 @@ export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 pb-5">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8">
+            <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
               Full-Stack Developer
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-              I create scalable web applications and digital experiences. 
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
+              I create scalable web applications and digital experiences.
               Specializing in React, Node.js, and modern web technologies.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
