@@ -86,6 +86,17 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Full-width Image Section */}
+      <section className="w-full">
+        <div className="aspect-[21/9] w-full bg-gradient-to-r from-muted/30 to-muted/60 flex items-center justify-center">
+          <img
+            src="/placeholder.svg"
+            alt="Portfolio showcase"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </section>
+
       {/* Work Section */}
       <section id="work" className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
