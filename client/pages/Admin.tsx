@@ -143,27 +143,14 @@ export default function Admin() {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {quickStats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <Card key={index}>
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-medium text-muted-foreground">{stat.title}</p>
-                        <p className="text-2xl font-bold">{stat.value}</p>
-                      </div>
-                      <Icon className={`h-8 w-8 ${stat.color}`} />
-                    </div>
-                    <div className="mt-4">
-                      <span className="text-sm text-green-600 font-medium">{stat.change}</span>
-                      <span className="text-sm text-muted-foreground"> from last month</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {quickStats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-2xl font-light mb-1">{stat.value}</div>
+                <div className="text-xs text-muted-foreground mb-1">{stat.title}</div>
+                <div className="text-xs text-muted-foreground">{stat.change}</div>
+              </div>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
