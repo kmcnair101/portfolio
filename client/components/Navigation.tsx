@@ -53,6 +53,12 @@ export default function Navigation() {
                 </Link>
               );
             })}
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/admin" className="flex items-center space-x-2">
+                <Settings className="h-4 w-4" />
+                <span>Admin</span>
+              </Link>
+            </Button>
           </nav>
 
           {/* Mobile menu button */}
