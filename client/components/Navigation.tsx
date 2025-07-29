@@ -57,18 +57,12 @@ export default function Navigation() {
           </nav>
 
           {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
+          <button
+            className="md:hidden text-sm"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </Button>
+            {mobileMenuOpen ? "Close" : "Menu"}
+          </button>
         </div>
 
         {/* Mobile Navigation */}
