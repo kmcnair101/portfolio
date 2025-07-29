@@ -182,28 +182,16 @@ export default function Admin() {
 
             {/* Recent Activity */}
             <div>
-              <h2 className="text-2xl font-bold mb-6">Recent Activity</h2>
-              <Card>
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    {recentActivity.map((activity, index) => (
-                      <div key={index} className="flex items-start space-x-3 pb-4 border-b border-border last:border-0 last:pb-0">
-                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Calendar className="h-4 w-4 text-primary" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-foreground">{activity.action}</p>
-                          <p className="text-sm text-muted-foreground">{activity.client}</p>
-                          <p className="text-xs text-muted-foreground mt-1">{activity.time}</p>
-                        </div>
-                      </div>
-                    ))}
+              <h2 className="text-2xl font-light mb-8">Activity</h2>
+              <div className="space-y-4">
+                {recentActivity.map((activity, index) => (
+                  <div key={index} className="border-b border-border/30 pb-4 last:border-b-0">
+                    <div className="text-sm mb-1">{activity.action}</div>
+                    <div className="text-xs text-muted-foreground">{activity.client}</div>
+                    <div className="text-xs text-muted-foreground">{activity.time}</div>
                   </div>
-                  <Button variant="outline" size="sm" className="w-full mt-4">
-                    View All Activity
-                  </Button>
-                </CardContent>
-              </Card>
+                ))}
+              </div>
             </div>
           </div>
         </div>
