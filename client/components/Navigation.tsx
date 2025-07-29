@@ -13,6 +13,7 @@ import { useState } from "react";
 
 const navigationItems = [
   { name: "Home", href: "/", icon: Home },
+  { name: "About", href: "/about", icon: FileText },
   { name: "Client Portal", href: "/portal", icon: FileText },
 ];
 
