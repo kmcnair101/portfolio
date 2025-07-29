@@ -30,32 +30,30 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => {
-              const Icon = item.icon;
               const isActive = location.pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   to={item.href}
                   className={cn(
-                    "flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
+                    "text-sm transition-colors border-b border-transparent",
                     isActive
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      ? "text-foreground border-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  <Icon className="h-4 w-4" />
-                  <span>{item.name}</span>
+                  {item.name}
                 </Link>
               );
             })}
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/admin" className="flex items-center space-x-2">
-                <Settings className="h-4 w-4" />
-                <span>Admin</span>
-              </Link>
-            </Button>
+            <Link
+              to="/admin"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Admin
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
