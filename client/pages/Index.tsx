@@ -184,9 +184,9 @@ export default function Index() {
           </p>
           
           <div className="space-y-4 mb-12">
-            <div className="text-lg">hello@yourdomain.com</div>
-            <div className="text-muted-foreground">+1 (555) 123-4567</div>
-            <div className="text-muted-foreground">San Francisco, CA</div>
+            <div className="text-lg">kris.j.mcnair@gmail.com</div>
+            <div className="text-muted-foreground">9549541234</div>
+            <div className="text-muted-foreground">Miami, FL</div>
           </div>
 
           <div className="flex justify-center space-x-6 mb-12">
