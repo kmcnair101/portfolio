@@ -31,16 +31,10 @@ export default function About() {
                   My goal is to build applications that are not only functional and scalable but also engaging and easy to use.&nbsp;
                 </p>
                 <p>
-                  <div></div>
-                </p>
-                <p>
                   When I'm not coding, you'll find me exploring new technologies, contributing to
                   open-source projects, or enjoying the great outdoors. I believe that the best
                   solutions come from understanding both the technical landscape and the human
                   experience.
-                </p>
-                <p>
-                  <div></div>
                 </p>
               </div>
             </div>
