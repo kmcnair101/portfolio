@@ -156,36 +156,27 @@ export default function Admin() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Business Tools */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold mb-6">Business Tools</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {adminTools.map((tool) => {
-                  const Icon = tool.icon;
-                  return (
-                    <Card key={tool.title} className="group hover:shadow-lg transition-all duration-300 border-0 bg-card/50 backdrop-blur-sm">
-                      <CardHeader>
-                        <div className="flex items-center justify-between mb-4">
-                          <div className={`w-12 h-12 rounded-lg ${tool.color} flex items-center justify-center`}>
-                            <Icon className="h-6 w-6" />
-                          </div>
-                          <div className="text-right">
-                            <div className="text-sm font-medium">{tool.stats}</div>
-                            <div className="text-xs text-green-600">{tool.growth}</div>
-                          </div>
-                        </div>
-                        <CardTitle className="text-xl">{tool.title}</CardTitle>
-                        <CardDescription>{tool.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <Button asChild variant="ghost" className="w-full justify-between group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                          <Link to={tool.href}>
-                            Open Tool
-                            <ArrowRight className="h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
+              <h2 className="text-2xl font-light mb-8">Tools</h2>
+              <div className="space-y-6">
+                {adminTools.map((tool) => (
+                  <div key={tool.title} className="border-b border-border/50 pb-6 last:border-b-0">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-medium mb-1">{tool.title}</h3>
+                        <p className="text-sm text-muted-foreground">{tool.description}</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-sm mb-1">{tool.stats}</div>
+                        <Link
+                          to={tool.href}
+                          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          Open →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
