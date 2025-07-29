@@ -100,6 +100,14 @@ export default function Navigation() {
                   </Link>
                 );
               })}
+              <Link
+                to="/admin"
+                className="flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Settings className="h-4 w-4" />
+                <span>Admin</span>
+              </Link>
             </nav>
           </div>
         )}
