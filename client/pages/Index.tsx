@@ -150,27 +150,23 @@ export default function Index() {
               <h2 className="text-3xl font-light mb-8">Services</h2>
               <div className="space-y-4">
                 <div className="border-b border-dotted border-muted-foreground/30 pb-3">
-                  <div className="flex justify-between items-start">
-                    <span>Web Development</span>
-                    <span className="text-sm text-muted-foreground">From $2,500</span>
+                  <div>
+                    Web Development
                   </div>
                 </div>
                 <div className="border-b border-dotted border-muted-foreground/30 pb-3">
-                  <div className="flex justify-between items-start">
-                    <span>Mobile Apps</span>
-                    <span className="text-sm text-muted-foreground">From $5,000</span>
+                  <div>
+                    Mobile Apps
                   </div>
                 </div>
                 <div className="border-b border-dotted border-muted-foreground/30 pb-3">
-                  <div className="flex justify-between items-start">
-                    <span>API Development</span>
-                    <span className="text-sm text-muted-foreground">From $1,500</span>
+                  <div>
+                    API Development
                   </div>
                 </div>
                 <div className="border-b border-dotted border-muted-foreground/30 pb-3">
-                  <div className="flex justify-between items-start">
-                    <span>Consulting</span>
-                    <span className="text-sm text-muted-foreground">$150/hour</span>
+                  <div>
+                    Consulting
                   </div>
                 </div>
               </div>
