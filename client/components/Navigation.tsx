@@ -1,24 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { 
-  BarChart3, 
-  Users, 
-  CreditCard, 
-  Mail, 
-  FileText, 
+import {
+  BarChart3,
   Home,
+  FileText,
   Menu,
-  X
+  X,
+  Settings
 } from "lucide-react";
 import { useState } from "react";
 
 const navigationItems = [
   { name: "Home", href: "/", icon: Home },
-  { name: "CRM", href: "/crm", icon: Users },
-  { name: "Payments", href: "/payments", icon: CreditCard },
-  { name: "Marketing", href: "/marketing", icon: Mail },
-  { name: "Analytics", href: "/analytics", icon: BarChart3 },
   { name: "Client Portal", href: "/portal", icon: FileText },
 ];
 
