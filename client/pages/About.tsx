@@ -18,29 +18,29 @@ export default function About() {
             {/* Content */}
             <div>
               <h1 className="text-4xl font-light mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
-                About Me
+                Software Engineer based in Miami, Florida&nbsp;
               </h1>
               <div className="space-y-6 text-muted-foreground leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
                 <p>
-                  I'm a full-stack developer with over 5 years of experience creating digital solutions 
-                  that bridge the gap between innovative design and robust functionality. My passion lies 
-                  in crafting applications that not only look beautiful but perform exceptionally.
+                  I'm a Full Stack Software Engineer based in Miami, Florida, with a strong focus on building high-quality web and mobile applications.
+                  <br />
+                  <br />
+                  &nbsp;I specialize in developing end-to-end solutions—from planning and designing intuitive user interfaces to implementing robust backend systems. Whether it's creating a product from scratch or improving an existing one, I bring a problem-solving mindset and a user-centered approach to every project.{" "}
+                  <br />
+                  <br />
+                  My goal is to build applications that are not only functional and scalable but also engaging and easy to use.&nbsp;
                 </p>
                 <p>
-                  Specializing in React, Node.js, and modern web technologies, I've had the privilege 
-                  of working with startups and established companies to bring their visions to life. 
-                  From e-commerce platforms to complex SaaS applications, I approach each project 
-                  with meticulous attention to detail and a commitment to excellence.
+                  <div></div>
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring new technologies, contributing to 
-                  open-source projects, or enjoying the great outdoors. I believe that the best 
-                  solutions come from understanding both the technical landscape and the human 
+                  When I'm not coding, you'll find me exploring new technologies, contributing to
+                  open-source projects, or enjoying the great outdoors. I believe that the best
+                  solutions come from understanding both the technical landscape and the human
                   experience.
                 </p>
                 <p>
-                  I'm always excited to take on new challenges and collaborate with like-minded 
-                  individuals who share a passion for creating meaningful digital experiences.
+                  <div></div>
                 </p>
               </div>
             </div>
