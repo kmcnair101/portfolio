@@ -94,8 +94,8 @@ export default function Index() {
           <div className="space-y-12">
             {portfolioProjects.map((project, index) => (
               <div key={index} className="border-b border-border pb-12 last:border-b-0">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                  <div className="md:col-span-2">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                  <div className="md:col-span-8">
                     <h3 className="text-xl font-medium mb-3">{project.title}</h3>
                     <p className="text-muted-foreground mb-4 leading-relaxed">
                       {project.description}
@@ -108,11 +108,19 @@ export default function Index() {
                       ))}
                     </div>
                   </div>
-                  <div className="text-right">
+                  <div className="md:col-span-3 flex items-center justify-end">
+                    <a href={project.link} className="block group">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-20 h-20 object-cover border border-border/50 transition-opacity group-hover:opacity-75"
+                      />
+                    </a>
+                  </div>
+                  <div className="md:col-span-1 flex items-center justify-end">
                     <Button variant="ghost" size="sm" asChild>
                       <a href={project.link} className="inline-flex items-center">
-                        View
-                        <ExternalLink className="ml-1 h-3 w-3" />
+                        <ExternalLink className="h-3 w-3" />
                       </a>
                     </Button>
                   </div>
