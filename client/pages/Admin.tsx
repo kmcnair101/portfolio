@@ -128,21 +128,18 @@ export default function Admin() {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-12 pb-8 border-b border-border/50">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight flex items-center">
-                <Settings className="h-8 w-8 mr-3 text-primary" />
-                Admin Dashboard
+              <h1 className="text-3xl font-light tracking-tight">
+                Admin
               </h1>
-              <p className="text-muted-foreground mt-1">
-                Manage your business operations and client relationships
+              <p className="text-muted-foreground mt-2">
+                Business operations
               </p>
             </div>
-            <Button asChild>
-              <Link to="/">
-                Back to Portfolio
-              </Link>
-            </Button>
+            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              ← Portfolio
+            </Link>
           </div>
 
           {/* Quick Stats */}
