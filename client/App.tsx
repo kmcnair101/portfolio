@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Client from "./pages/Client";
+import ClientAuth from "./pages/ClientAuth";
 import CRM from "./pages/CRM";
 import Payments from "./pages/Payments";
 import Marketing from "./pages/Marketing";
@@ -18,7 +19,9 @@ import Analytics from "./pages/Analytics";
 import ClientPortal from "./pages/ClientPortal";
 import Admin from "./pages/Admin";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedClientRoute from "./components/ProtectedClientRoute";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ClientAuthProvider } from "./contexts/ClientAuthContext";
 
 const queryClient = new QueryClient();
 
