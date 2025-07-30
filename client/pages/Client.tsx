@@ -202,6 +202,23 @@ const statusColors = {
 export default function Client() {
   const [newMessage, setNewMessage] = useState("");
   const [activeTab, setActiveTab] = useState("dashboard");
+  const { client, logout } = useClientAuth();
+
+  const handleLogout = () => {
+    logout();
+    window.location.href = '/';
+  };
+
+  // If client data is not loaded yet, show loading
+  if (!client) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center">Loading...</div>
+        </div>
+      </Layout>
+    );
+  }
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
