@@ -124,6 +124,13 @@ const recentActivity = [
 ];
 
 export default function Admin() {
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    window.location.href = '/';
+  };
+
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8">
