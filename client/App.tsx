@@ -9,12 +9,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
+import Login from "./pages/Login";
 import CRM from "./pages/CRM";
 import Payments from "./pages/Payments";
 import Marketing from "./pages/Marketing";
 import Analytics from "./pages/Analytics";
 import ClientPortal from "./pages/ClientPortal";
 import Admin from "./pages/Admin";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./contexts/AuthContext";
 
 const queryClient = new QueryClient();
 
