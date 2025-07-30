@@ -1,15 +1,27 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Layout from "@/components/Layout";
-import { 
-  Mail, 
-  Search, 
-  Plus, 
+import {
+  Mail,
+  Search,
+  Plus,
   TrendingUp,
   TrendingDown,
   Users,
@@ -27,7 +39,7 @@ import {
   Trash2,
   BarChart3,
   Settings,
-  Zap
+  Zap,
 } from "lucide-react";
 
 // Mock data for campaigns
@@ -49,10 +61,10 @@ const mockCampaigns = [
     clickRate: 17.8,
     conversionRate: 3.6,
     createdDate: "2024-01-01",
-    lastSent: "2024-01-15"
+    lastSent: "2024-01-15",
   },
   {
-    id: "CAMP-002", 
+    id: "CAMP-002",
     name: "Product Launch Announcement",
     type: "campaign",
     status: "sent",
@@ -68,12 +80,12 @@ const mockCampaigns = [
     clickRate: 14.4,
     conversionRate: 1.7,
     createdDate: "2024-01-10",
-    lastSent: "2024-01-12"
+    lastSent: "2024-01-12",
   },
   {
     id: "CAMP-003",
     name: "Monthly Newsletter",
-    type: "campaign", 
+    type: "campaign",
     status: "scheduled",
     subject: "Your Monthly Digest - January 2024",
     audience: "Newsletter Subscribers",
@@ -88,7 +100,7 @@ const mockCampaigns = [
     conversionRate: 0,
     createdDate: "2024-01-14",
     lastSent: null,
-    scheduledDate: "2024-01-20"
+    scheduledDate: "2024-01-20",
   },
   {
     id: "CAMP-004",
@@ -107,7 +119,7 @@ const mockCampaigns = [
     clickRate: 0,
     conversionRate: 0,
     createdDate: "2024-01-13",
-    lastSent: null
+    lastSent: null,
   },
   {
     id: "CAMP-005",
@@ -126,8 +138,8 @@ const mockCampaigns = [
     clickRate: 24.9,
     conversionRate: 3.8,
     createdDate: "2023-11-23",
-    lastSent: "2023-11-24"
-  }
+    lastSent: "2023-11-24",
+  },
 ];
 
 // Mock audience segments
@@ -137,7 +149,7 @@ const mockAudiences = [
   { id: 3, name: "Active Customers", size: 1850, growth: "+15%" },
   { id: 4, name: "Newsletter Subscribers", size: 3200, growth: "+5%" },
   { id: 5, name: "Inactive Users", size: 580, growth: "-3%" },
-  { id: 6, name: "VIP Customers", size: 125, growth: "+22%" }
+  { id: 6, name: "VIP Customers", size: 125, growth: "+22%" },
 ];
 
 // Mock automation workflows
@@ -151,18 +163,18 @@ const mockAutomations = [
     subscribers: 245,
     openRate: 89.2,
     clickRate: 17.8,
-    conversions: 45
+    conversions: 45,
   },
   {
     id: "AUTO-002",
     name: "Abandoned Cart Recovery",
     trigger: "Cart Abandonment",
-    status: "active", 
+    status: "active",
     emails: 2,
     subscribers: 156,
     openRate: 65.4,
     clickRate: 23.1,
-    conversions: 28
+    conversions: 28,
   },
   {
     id: "AUTO-003",
@@ -173,8 +185,8 @@ const mockAutomations = [
     subscribers: 89,
     openRate: 82.0,
     clickRate: 15.6,
-    conversions: 12
-  }
+    conversions: 12,
+  },
 ];
 
 const statusColors = {
@@ -182,12 +194,12 @@ const statusColors = {
   sent: "bg-blue-100 text-blue-700",
   scheduled: "bg-yellow-100 text-yellow-700",
   draft: "bg-gray-100 text-gray-700",
-  paused: "bg-orange-100 text-orange-700"
+  paused: "bg-orange-100 text-orange-700",
 };
 
 const typeColors = {
   campaign: "bg-purple-100 text-purple-700",
-  automation: "bg-cyan-100 text-cyan-700"
+  automation: "bg-cyan-100 text-cyan-700",
 };
 
 export default function Marketing() {
@@ -195,10 +207,12 @@ export default function Marketing() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [typeFilter, setTypeFilter] = useState("all");
 
-  const filteredCampaigns = mockCampaigns.filter(campaign => {
-    const matchesSearch = campaign.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         campaign.subject.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesStatus = statusFilter === "all" || campaign.status === statusFilter;
+  const filteredCampaigns = mockCampaigns.filter((campaign) => {
+    const matchesSearch =
+      campaign.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      campaign.subject.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus =
+      statusFilter === "all" || campaign.status === statusFilter;
     const matchesType = typeFilter === "all" || campaign.type === typeFilter;
     return matchesSearch && matchesStatus && matchesType;
   });
@@ -207,17 +221,22 @@ export default function Marketing() {
   const totalSent = mockCampaigns.reduce((sum, camp) => sum + camp.sent, 0);
   const totalOpens = mockCampaigns.reduce((sum, camp) => sum + camp.opens, 0);
   const totalClicks = mockCampaigns.reduce((sum, camp) => sum + camp.clicks, 0);
-  const totalRevenue = mockCampaigns.reduce((sum, camp) => sum + camp.revenue, 0);
-  const overallOpenRate = totalSent > 0 ? (totalOpens / totalSent * 100).toFixed(1) : 0;
-  const overallClickRate = totalSent > 0 ? (totalClicks / totalSent * 100).toFixed(1) : 0;
+  const totalRevenue = mockCampaigns.reduce(
+    (sum, camp) => sum + camp.revenue,
+    0,
+  );
+  const overallOpenRate =
+    totalSent > 0 ? ((totalOpens / totalSent) * 100).toFixed(1) : 0;
+  const overallClickRate =
+    totalSent > 0 ? ((totalClicks / totalSent) * 100).toFixed(1) : 0;
   const totalSubscribers = 4100; // Mock total
 
   const formatDate = (dateString) => {
-    if (!dateString) return 'Not sent';
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+    if (!dateString) return "Not sent";
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
@@ -254,8 +273,12 @@ export default function Marketing() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Total Subscribers</p>
-                    <p className="text-2xl font-light">{totalSubscribers.toLocaleString()}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Total Subscribers
+                    </p>
+                    <p className="text-2xl font-light">
+                      {totalSubscribers.toLocaleString()}
+                    </p>
                     <p className="text-xs text-green-600 flex items-center mt-1">
                       <TrendingUp className="h-3 w-3 mr-1" />
                       +12% this month
@@ -299,8 +322,12 @@ export default function Marketing() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Revenue Generated</p>
-                    <p className="text-2xl font-light">${totalRevenue.toLocaleString()}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Revenue Generated
+                    </p>
+                    <p className="text-2xl font-light">
+                      ${totalRevenue.toLocaleString()}
+                    </p>
                     <p className="text-xs text-green-600 flex items-center mt-1">
                       <TrendingUp className="h-3 w-3 mr-1" />
                       +18% from last month
@@ -360,7 +387,10 @@ export default function Marketing() {
               {/* Campaigns List */}
               <div className="grid grid-cols-1 gap-4">
                 {filteredCampaigns.map((campaign) => (
-                  <Card key={campaign.id} className="hover:shadow-md transition-shadow">
+                  <Card
+                    key={campaign.id}
+                    className="hover:shadow-md transition-shadow"
+                  >
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-start space-x-4">
@@ -369,19 +399,32 @@ export default function Marketing() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-1">
-                              <h3 className="font-medium text-lg">{campaign.name}</h3>
-                              <Badge className={statusColors[campaign.status]} variant="secondary">
-                                {campaign.status.charAt(0).toUpperCase() + campaign.status.slice(1)}
+                              <h3 className="font-medium text-lg">
+                                {campaign.name}
+                              </h3>
+                              <Badge
+                                className={statusColors[campaign.status]}
+                                variant="secondary"
+                              >
+                                {campaign.status.charAt(0).toUpperCase() +
+                                  campaign.status.slice(1)}
                               </Badge>
-                              <Badge className={typeColors[campaign.type]} variant="secondary">
-                                {campaign.type.charAt(0).toUpperCase() + campaign.type.slice(1)}
+                              <Badge
+                                className={typeColors[campaign.type]}
+                                variant="secondary"
+                              >
+                                {campaign.type.charAt(0).toUpperCase() +
+                                  campaign.type.slice(1)}
                               </Badge>
                             </div>
-                            <p className="text-sm text-muted-foreground mb-2 italic">"{campaign.subject}"</p>
+                            <p className="text-sm text-muted-foreground mb-2 italic">
+                              "{campaign.subject}"
+                            </p>
                             <div className="flex items-center gap-6 text-sm text-muted-foreground mb-2">
                               <div className="flex items-center gap-1">
                                 <Target className="h-3 w-3" />
-                                {campaign.audience} ({campaign.audienceSize.toLocaleString()})
+                                {campaign.audience} (
+                                {campaign.audienceSize.toLocaleString()})
                               </div>
                               {campaign.sent > 0 && (
                                 <>
@@ -401,9 +444,12 @@ export default function Marketing() {
                               )}
                             </div>
                             <div className="text-xs text-muted-foreground">
-                              Created {formatDate(campaign.createdDate)} • 
-                              {campaign.scheduledDate ? ` Scheduled for ${formatDate(campaign.scheduledDate)}` : 
-                               campaign.lastSent ? ` Last sent ${formatDate(campaign.lastSent)}` : ' Not sent yet'}
+                              Created {formatDate(campaign.createdDate)} •
+                              {campaign.scheduledDate
+                                ? ` Scheduled for ${formatDate(campaign.scheduledDate)}`
+                                : campaign.lastSent
+                                  ? ` Last sent ${formatDate(campaign.lastSent)}`
+                                  : " Not sent yet"}
                             </div>
                           </div>
                         </div>
@@ -417,12 +463,12 @@ export default function Marketing() {
                           <Button variant="ghost" size="sm">
                             <Copy className="h-4 w-4" />
                           </Button>
-                          {campaign.status === 'active' && (
+                          {campaign.status === "active" && (
                             <Button variant="ghost" size="sm">
                               <Pause className="h-4 w-4" />
                             </Button>
                           )}
-                          {campaign.status === 'draft' && (
+                          {campaign.status === "draft" && (
                             <Button variant="ghost" size="sm">
                               <Send className="h-4 w-4" />
                             </Button>
@@ -441,7 +487,10 @@ export default function Marketing() {
             <TabsContent value="automations" className="space-y-6">
               <div className="grid grid-cols-1 gap-4">
                 {mockAutomations.map((automation) => (
-                  <Card key={automation.id} className="hover:shadow-md transition-shadow">
+                  <Card
+                    key={automation.id}
+                    className="hover:shadow-md transition-shadow"
+                  >
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-start space-x-4">
@@ -450,12 +499,20 @@ export default function Marketing() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-1">
-                              <h3 className="font-medium text-lg">{automation.name}</h3>
-                              <Badge className={statusColors[automation.status]} variant="secondary">
-                                {automation.status.charAt(0).toUpperCase() + automation.status.slice(1)}
+                              <h3 className="font-medium text-lg">
+                                {automation.name}
+                              </h3>
+                              <Badge
+                                className={statusColors[automation.status]}
+                                variant="secondary"
+                              >
+                                {automation.status.charAt(0).toUpperCase() +
+                                  automation.status.slice(1)}
                               </Badge>
                             </div>
-                            <p className="text-sm text-muted-foreground mb-2">Trigger: {automation.trigger}</p>
+                            <p className="text-sm text-muted-foreground mb-2">
+                              Trigger: {automation.trigger}
+                            </p>
                             <div className="flex items-center gap-6 text-sm text-muted-foreground">
                               <div>{automation.emails} emails</div>
                               <div>{automation.subscribers} subscribers</div>
@@ -472,7 +529,7 @@ export default function Marketing() {
                           <Button variant="ghost" size="sm">
                             <Edit className="h-4 w-4" />
                           </Button>
-                          {automation.status === 'active' ? (
+                          {automation.status === "active" ? (
                             <Button variant="ghost" size="sm">
                               <Pause className="h-4 w-4" />
                             </Button>
@@ -494,15 +551,21 @@ export default function Marketing() {
                 {mockAudiences.map((audience) => (
                   <Card key={audience.id}>
                     <CardHeader className="pb-3">
-                      <CardTitle className="text-lg font-medium">{audience.name}</CardTitle>
+                      <CardTitle className="text-lg font-medium">
+                        {audience.name}
+                      </CardTitle>
                       <CardDescription>
                         {audience.size.toLocaleString()} subscribers
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="flex items-center justify-between">
-                        <div className="text-sm text-muted-foreground">Growth this month</div>
-                        <div className={`text-sm font-medium ${audience.growth.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>
+                        <div className="text-sm text-muted-foreground">
+                          Growth this month
+                        </div>
+                        <div
+                          className={`text-sm font-medium ${audience.growth.startsWith("+") ? "text-green-600" : "text-red-600"}`}
+                        >
                           {audience.growth}
                         </div>
                       </div>
@@ -517,25 +580,43 @@ export default function Marketing() {
                 <Card>
                   <CardHeader>
                     <CardTitle>Campaign Performance</CardTitle>
-                    <CardDescription>Overall metrics across all campaigns</CardDescription>
+                    <CardDescription>
+                      Overall metrics across all campaigns
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">Total Emails Sent</span>
-                        <span className="font-medium">{totalSent.toLocaleString()}</span>
+                        <span className="text-sm text-muted-foreground">
+                          Total Emails Sent
+                        </span>
+                        <span className="font-medium">
+                          {totalSent.toLocaleString()}
+                        </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">Total Opens</span>
-                        <span className="font-medium">{totalOpens.toLocaleString()}</span>
+                        <span className="text-sm text-muted-foreground">
+                          Total Opens
+                        </span>
+                        <span className="font-medium">
+                          {totalOpens.toLocaleString()}
+                        </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm text-muted-foreground">Total Clicks</span>
-                        <span className="font-medium">{totalClicks.toLocaleString()}</span>
+                        <span className="text-sm text-muted-foreground">
+                          Total Clicks
+                        </span>
+                        <span className="font-medium">
+                          {totalClicks.toLocaleString()}
+                        </span>
                       </div>
                       <div className="flex justify-between items-center pt-2 border-t">
-                        <span className="text-sm font-medium">Revenue Generated</span>
-                        <span className="font-medium text-green-600">${totalRevenue.toLocaleString()}</span>
+                        <span className="text-sm font-medium">
+                          Revenue Generated
+                        </span>
+                        <span className="font-medium text-green-600">
+                          ${totalRevenue.toLocaleString()}
+                        </span>
                       </div>
                     </div>
                   </CardContent>
@@ -544,26 +625,39 @@ export default function Marketing() {
                 <Card>
                   <CardHeader>
                     <CardTitle>Top Performing Campaigns</CardTitle>
-                    <CardDescription>Highest converting campaigns this month</CardDescription>
+                    <CardDescription>
+                      Highest converting campaigns this month
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
                       {mockCampaigns
-                        .filter(c => c.sent > 0)
+                        .filter((c) => c.sent > 0)
                         .sort((a, b) => b.conversionRate - a.conversionRate)
                         .slice(0, 3)
                         .map((campaign) => (
-                        <div key={campaign.id} className="flex justify-between items-center">
-                          <div>
-                            <div className="font-medium text-sm">{campaign.name}</div>
-                            <div className="text-xs text-muted-foreground">{campaign.conversionRate}% conversion rate</div>
+                          <div
+                            key={campaign.id}
+                            className="flex justify-between items-center"
+                          >
+                            <div>
+                              <div className="font-medium text-sm">
+                                {campaign.name}
+                              </div>
+                              <div className="text-xs text-muted-foreground">
+                                {campaign.conversionRate}% conversion rate
+                              </div>
+                            </div>
+                            <div className="text-right">
+                              <div className="font-medium text-sm">
+                                ${campaign.revenue.toLocaleString()}
+                              </div>
+                              <div className="text-xs text-muted-foreground">
+                                {campaign.conversions} conversions
+                              </div>
+                            </div>
                           </div>
-                          <div className="text-right">
-                            <div className="font-medium text-sm">${campaign.revenue.toLocaleString()}</div>
-                            <div className="text-xs text-muted-foreground">{campaign.conversions} conversions</div>
-                          </div>
-                        </div>
-                      ))}
+                        ))}
                     </div>
                   </CardContent>
                 </Card>
