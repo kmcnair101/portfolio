@@ -261,8 +261,8 @@ export default function Client() {
                 <User className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-3xl font-light tracking-tight">Welcome back, {mockClient.name}</h1>
-                <p className="text-muted-foreground mt-1">{mockClient.company}</p>
+                <h1 className="text-3xl font-light tracking-tight">Welcome back, {client.name}</h1>
+                <p className="text-muted-foreground mt-1">{client.company}</p>
               </div>
             </div>
             <div className="flex gap-2">
