@@ -38,18 +38,7 @@ import {
   Plus
 } from "lucide-react";
 
-// Mock client data
-const mockClient = {
-  id: "CLIENT-001",
-  name: "Sarah Johnson",
-  company: "TechCorp Solutions",
-  email: "sarah@techcorp.com",
-  phone: "+1 (555) 123-4567",
-  avatar: "/placeholder.svg",
-  memberSince: "2023-06-15",
-  totalProjects: 3,
-  activeProjects: 1
-};
+// Client data comes from auth context
 
 // Mock projects data
 const mockProjects = [
