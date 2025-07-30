@@ -145,9 +145,17 @@ export default function Admin() {
                 Business operations
               </p>
             </div>
-            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              ← Portfolio
-            </Link>
+            <div className="flex gap-2">
+              <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                ← Portfolio
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Logout
+              </button>
+            </div>
           </div>
 
           {/* Quick Stats */}
