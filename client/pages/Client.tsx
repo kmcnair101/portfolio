@@ -1,0 +1,710 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import Layout from "@/components/Layout";
+import { 
+  Home,
+  FolderOpen,
+  MessageSquare,
+  CreditCard,
+  FileText,
+  Calendar,
+  BarChart3,
+  Settings,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  Download,
+  Upload,
+  Send,
+  Phone,
+  Video,
+  Mail,
+  Bell,
+  User,
+  Building,
+  Activity,
+  Archive,
+  DollarSign,
+  Eye,
+  Edit,
+  Check,
+  X,
+  Plus
+} from "lucide-react";
+
+// Mock client data
+const mockClient = {
+  id: "CLIENT-001",
+  name: "Sarah Johnson",
+  company: "TechCorp Solutions",
+  email: "sarah@techcorp.com",
+  phone: "+1 (555) 123-4567",
+  avatar: "/placeholder.svg",
+  memberSince: "2023-06-15",
+  totalProjects: 3,
+  activeProjects: 1
+};
+
+// Mock projects data
+const mockProjects = [
+  {
+    id: "PROJ-001",
+    name: "Web Application Redesign",
+    status: "in-progress",
+    progress: 65,
+    startDate: "2024-01-01",
+    dueDate: "2024-02-15",
+    value: 15000,
+    description: "Complete redesign of the company web application with modern UI/UX",
+    milestones: [
+      { id: 1, name: "Discovery & Research", status: "completed", date: "2024-01-05", description: "User research and requirements gathering" },
+      { id: 2, name: "Design Mockups", status: "in-progress", date: "2024-01-20", description: "Creating wireframes and visual designs", needsApproval: true },
+      { id: 3, name: "Development Phase", status: "pending", date: "2024-02-01", description: "Frontend and backend development" },
+      { id: 4, name: "Testing & Launch", status: "pending", date: "2024-02-15", description: "QA testing and production deployment" }
+    ]
+  },
+  {
+    id: "PROJ-002",
+    name: "Brand Identity Package",
+    status: "completed",
+    progress: 100,
+    startDate: "2023-11-01",
+    dueDate: "2023-12-15",
+    value: 8500,
+    description: "Complete brand identity including logo, colors, and guidelines",
+    milestones: [
+      { id: 1, name: "Brand Discovery", status: "completed", date: "2023-11-05" },
+      { id: 2, name: "Logo Design", status: "completed", date: "2023-11-20" },
+      { id: 3, name: "Brand Guidelines", status: "completed", date: "2023-12-10" },
+      { id: 4, name: "Final Delivery", status: "completed", date: "2023-12-15" }
+    ]
+  }
+];
+
+// Mock invoices data
+const mockInvoices = [
+  {
+    id: "INV-001",
+    projectName: "Web Application Redesign",
+    amount: 7500,
+    status: "paid",
+    dueDate: "2024-01-15",
+    paidDate: "2024-01-12",
+    description: "50% milestone payment"
+  },
+  {
+    id: "INV-002",
+    projectName: "Web Application Redesign", 
+    amount: 7500,
+    status: "pending",
+    dueDate: "2024-02-15",
+    paidDate: null,
+    description: "Final payment on completion"
+  },
+  {
+    id: "INV-003",
+    projectName: "Brand Identity Package",
+    amount: 8500,
+    status: "paid",
+    dueDate: "2023-12-20",
+    paidDate: "2023-12-18",
+    description: "Full project payment"
+  }
+];
+
+// Mock messages data
+const mockMessages = [
+  {
+    id: 1,
+    sender: "Kris McNair",
+    message: "Hi Sarah! I've uploaded the latest design mockups for your review. Please let me know your thoughts.",
+    timestamp: "2024-01-15T14:30:00",
+    isFromClient: false
+  },
+  {
+    id: 2,
+    sender: "Sarah Johnson",
+    message: "Thanks! I love the direction. Just have a few minor feedback points I'll share shortly.",
+    timestamp: "2024-01-15T15:45:00",
+    isFromClient: true
+  },
+  {
+    id: 3,
+    sender: "Kris McNair",
+    message: "Perfect! Take your time with the review. I'll be ready to implement any changes.",
+    timestamp: "2024-01-15T16:00:00",
+    isFromClient: false
+  }
+];
+
+// Mock files data
+const mockFiles = [
+  {
+    id: 1,
+    name: "Project_Brief_v2.pdf",
+    type: "pdf",
+    size: "2.4 MB",
+    category: "contracts",
+    uploadedDate: "2024-01-01",
+    uploadedBy: "client"
+  },
+  {
+    id: 2,
+    name: "Design_Mockups_v1.zip",
+    type: "zip", 
+    size: "15.7 MB",
+    category: "deliverables",
+    uploadedDate: "2024-01-15",
+    uploadedBy: "freelancer"
+  },
+  {
+    id: 3,
+    name: "Brand_Guidelines.pdf",
+    type: "pdf",
+    size: "8.2 MB",
+    category: "deliverables",
+    uploadedDate: "2023-12-15",
+    uploadedBy: "freelancer"
+  }
+];
+
+// Mock activity data
+const mockActivity = [
+  {
+    id: 1,
+    type: "milestone",
+    description: "Design Mockups milestone ready for review",
+    timestamp: "2024-01-15T14:30:00"
+  },
+  {
+    id: 2,
+    type: "payment",
+    description: "Invoice INV-001 payment received",
+    timestamp: "2024-01-12T10:15:00"
+  },
+  {
+    id: 3,
+    type: "message",
+    description: "New message from Kris McNair",
+    timestamp: "2024-01-10T16:20:00"
+  },
+  {
+    id: 4,
+    type: "file",
+    description: "New file uploaded: Design_Mockups_v1.zip",
+    timestamp: "2024-01-15T14:25:00"
+  }
+];
+
+const statusColors = {
+  "in-progress": "bg-blue-100 text-blue-700",
+  completed: "bg-green-100 text-green-700",
+  pending: "bg-yellow-100 text-yellow-700",
+  paid: "bg-green-100 text-green-700",
+  overdue: "bg-red-100 text-red-700"
+};
+
+export default function Client() {
+  const [newMessage, setNewMessage] = useState("");
+  const [activeTab, setActiveTab] = useState("dashboard");
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  };
+
+  const formatDateTime = (dateString) => {
+    return new Date(dateString).toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+
+  const handleSendMessage = () => {
+    if (newMessage.trim()) {
+      // In a real app, this would send the message to the server
+      console.log("Sending message:", newMessage);
+      setNewMessage("");
+    }
+  };
+
+  const handleApproveDecline = (milestoneId, action) => {
+    console.log(`${action} milestone ${milestoneId}`);
+  };
+
+  return (
+    <Layout>
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-8 pb-6 border-b border-border/50">
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                <User className="h-6 w-6 text-primary-foreground" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-light tracking-tight">Welcome back, {mockClient.name}</h1>
+                <p className="text-muted-foreground mt-1">{mockClient.company}</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <Button variant="outline" size="sm">
+                <Bell className="h-4 w-4 mr-2" />
+                Notifications
+              </Button>
+              <Button variant="outline" size="sm">
+                <Settings className="h-4 w-4 mr-2" />
+                Settings
+              </Button>
+            </div>
+          </div>
+
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+            <TabsList className="grid w-full grid-cols-9">
+              <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+              <TabsTrigger value="projects">Projects</TabsTrigger>
+              <TabsTrigger value="messages">Messages</TabsTrigger>
+              <TabsTrigger value="invoices">Invoices</TabsTrigger>
+              <TabsTrigger value="proposals">Proposals</TabsTrigger>
+              <TabsTrigger value="scheduling">Schedule</TabsTrigger>
+              <TabsTrigger value="analytics">Analytics</TabsTrigger>
+              <TabsTrigger value="files">File Vault</TabsTrigger>
+              <TabsTrigger value="activity">Activity</TabsTrigger>
+            </TabsList>
+
+            {/* Dashboard Tab */}
+            <TabsContent value="dashboard" className="space-y-6">
+              {/* Quick Stats */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm text-muted-foreground">Active Projects</p>
+                        <p className="text-2xl font-light">{mockClient.activeProjects}</p>
+                      </div>
+                      <FolderOpen className="h-8 w-8 text-blue-600" />
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm text-muted-foreground">Pending Approvals</p>
+                        <p className="text-2xl font-light">1</p>
+                      </div>
+                      <AlertCircle className="h-8 w-8 text-orange-600" />
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm text-muted-foreground">Unread Messages</p>
+                        <p className="text-2xl font-light">2</p>
+                      </div>
+                      <MessageSquare className="h-8 w-8 text-green-600" />
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm text-muted-foreground">Pending Invoices</p>
+                        <p className="text-2xl font-light">1</p>
+                      </div>
+                      <CreditCard className="h-8 w-8 text-purple-600" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Recent Activity & Current Projects */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Current Project Status</CardTitle>
+                    <CardDescription>Your active projects and their progress</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    {mockProjects.filter(p => p.status === 'in-progress').map((project) => (
+                      <div key={project.id} className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <h4 className="font-medium">{project.name}</h4>
+                          <Badge className={statusColors[project.status]} variant="secondary">
+                            {project.progress}% Complete
+                          </Badge>
+                        </div>
+                        <div className="w-full bg-muted rounded-full h-2">
+                          <div 
+                            className="bg-primary h-2 rounded-full transition-all duration-300" 
+                            style={{ width: `${project.progress}%` }}
+                          ></div>
+                        </div>
+                        <p className="text-sm text-muted-foreground">{project.description}</p>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Recent Activity</CardTitle>
+                    <CardDescription>Latest updates and actions</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {mockActivity.slice(0, 4).map((activity) => (
+                        <div key={activity.id} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 rounded-full bg-primary mt-2"></div>
+                          <div className="flex-1">
+                            <p className="text-sm">{activity.description}</p>
+                            <p className="text-xs text-muted-foreground">{formatDateTime(activity.timestamp)}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* Projects Tab */}
+            <TabsContent value="projects" className="space-y-6">
+              <div className="space-y-6">
+                {mockProjects.map((project) => (
+                  <Card key={project.id}>
+                    <CardHeader>
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <CardTitle className="flex items-center gap-3">
+                            {project.name}
+                            <Badge className={statusColors[project.status]} variant="secondary">
+                              {project.status.replace('-', ' ').charAt(0).toUpperCase() + project.status.replace('-', ' ').slice(1)}
+                            </Badge>
+                          </CardTitle>
+                          <CardDescription>{project.description}</CardDescription>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-lg font-medium">${project.value.toLocaleString()}</div>
+                          <div className="text-sm text-muted-foreground">Due: {formatDate(project.dueDate)}</div>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div>
+                          <div className="flex justify-between text-sm mb-2">
+                            <span>Progress</span>
+                            <span>{project.progress}%</span>
+                          </div>
+                          <div className="w-full bg-muted rounded-full h-2">
+                            <div 
+                              className="bg-primary h-2 rounded-full transition-all duration-300" 
+                              style={{ width: `${project.progress}%` }}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="font-medium mb-3">Project Milestones</h4>
+                          <div className="space-y-3">
+                            {project.milestones.map((milestone) => (
+                              <div key={milestone.id} className="flex items-center justify-between p-3 border rounded-lg">
+                                <div className="flex items-center space-x-3">
+                                  {milestone.status === 'completed' && <CheckCircle className="h-5 w-5 text-green-600" />}
+                                  {milestone.status === 'in-progress' && <Clock className="h-5 w-5 text-blue-600" />}
+                                  {milestone.status === 'pending' && <AlertCircle className="h-5 w-5 text-gray-400" />}
+                                  <div>
+                                    <div className="font-medium">{milestone.name}</div>
+                                    <div className="text-sm text-muted-foreground">{milestone.description}</div>
+                                    <div className="text-xs text-muted-foreground">Due: {formatDate(milestone.date)}</div>
+                                  </div>
+                                </div>
+                                {milestone.needsApproval && (
+                                  <div className="flex gap-2">
+                                    <Button size="sm" onClick={() => handleApproveDecline(milestone.id, 'approve')}>
+                                      <Check className="h-4 w-4 mr-1" />
+                                      Approve
+                                    </Button>
+                                    <Button size="sm" variant="outline" onClick={() => handleApproveDecline(milestone.id, 'decline')}>
+                                      <X className="h-4 w-4 mr-1" />
+                                      Decline
+                                    </Button>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Messages Tab */}
+            <TabsContent value="messages" className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Messages with Kris McNair</CardTitle>
+                  <CardDescription>Secure communication channel</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4 mb-6 max-h-96 overflow-y-auto">
+                    {mockMessages.map((message) => (
+                      <div key={message.id} className={`flex ${message.isFromClient ? 'justify-end' : 'justify-start'}`}>
+                        <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                          message.isFromClient 
+                            ? 'bg-primary text-primary-foreground' 
+                            : 'bg-muted'
+                        }`}>
+                          <div className="text-sm font-medium mb-1">{message.sender}</div>
+                          <div className="text-sm">{message.message}</div>
+                          <div className={`text-xs mt-1 ${message.isFromClient ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
+                            {formatDateTime(message.timestamp)}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex space-x-2">
+                    <Textarea
+                      placeholder="Type your message..."
+                      value={newMessage}
+                      onChange={(e) => setNewMessage(e.target.value)}
+                      className="flex-1"
+                      rows={2}
+                    />
+                    <Button onClick={handleSendMessage} disabled={!newMessage.trim()}>
+                      <Send className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Invoices Tab */}
+            <TabsContent value="invoices" className="space-y-6">
+              <div className="space-y-4">
+                {mockInvoices.map((invoice) => (
+                  <Card key={invoice.id}>
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-start space-x-4">
+                          <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                            <FileText className="h-6 w-6 text-muted-foreground" />
+                          </div>
+                          <div>
+                            <h3 className="font-medium text-lg">{invoice.id}</h3>
+                            <p className="text-sm text-muted-foreground">{invoice.projectName}</p>
+                            <p className="text-sm text-muted-foreground">{invoice.description}</p>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
+                              <div>Due: {formatDate(invoice.dueDate)}</div>
+                              {invoice.paidDate && <div>Paid: {formatDate(invoice.paidDate)}</div>}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-2xl font-medium">${invoice.amount.toLocaleString()}</div>
+                          <Badge className={statusColors[invoice.status]} variant="secondary">
+                            {invoice.status.charAt(0).toUpperCase() + invoice.status.slice(1)}
+                          </Badge>
+                          <div className="flex gap-2 mt-3">
+                            <Button size="sm" variant="outline">
+                              <Download className="h-4 w-4 mr-1" />
+                              Download
+                            </Button>
+                            {invoice.status === 'pending' && (
+                              <Button size="sm">
+                                <CreditCard className="h-4 w-4 mr-1" />
+                                Pay Now
+                              </Button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Proposals Tab */}
+            <TabsContent value="proposals" className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Proposals & Contracts</CardTitle>
+                  <CardDescription>Review and manage project proposals</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-center py-8">
+                    <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                    <p className="text-muted-foreground">No proposals pending review</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Scheduling Tab */}
+            <TabsContent value="scheduling" className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Schedule a Meeting</CardTitle>
+                  <CardDescription>Book a call or meeting with Kris McNair</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Button className="h-24 flex-col space-y-2">
+                      <Phone className="h-6 w-6" />
+                      <span>Schedule Phone Call</span>
+                    </Button>
+                    <Button className="h-24 flex-col space-y-2" variant="outline">
+                      <Video className="h-6 w-6" />
+                      <span>Schedule Video Call</span>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Analytics Tab */}
+            <TabsContent value="analytics" className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Project Analytics</CardTitle>
+                    <CardDescription>Progress and performance metrics</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">On-time Delivery Rate</span>
+                        <span className="font-medium">95%</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Average Response Time</span>
+                        <span className="font-medium">2.3 hours</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Client Satisfaction</span>
+                        <span className="font-medium">4.9/5</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Communication Stats</CardTitle>
+                    <CardDescription>Your interaction metrics</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Messages Exchanged</span>
+                        <span className="font-medium">127</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Files Shared</span>
+                        <span className="font-medium">18</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-muted-foreground">Meetings Held</span>
+                        <span className="font-medium">8</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* File Vault Tab */}
+            <TabsContent value="files" className="space-y-6">
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-medium">File Vault</h3>
+                <Button>
+                  <Upload className="h-4 w-4 mr-2" />
+                  Upload File
+                </Button>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-4">
+                {mockFiles.map((file) => (
+                  <Card key={file.id}>
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                            <FileText className="h-6 w-6 text-muted-foreground" />
+                          </div>
+                          <div>
+                            <h4 className="font-medium">{file.name}</h4>
+                            <p className="text-sm text-muted-foreground">
+                              {file.size} • Uploaded {formatDate(file.uploadedDate)} by {file.uploadedBy}
+                            </p>
+                            <Badge variant="outline" className="mt-1 text-xs">
+                              {file.category}
+                            </Badge>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="ghost" size="sm">
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <Download className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Activity Tab */}
+            <TabsContent value="activity" className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Activity Timeline</CardTitle>
+                  <CardDescription>Chronological history of all actions</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {mockActivity.map((activity) => (
+                      <div key={activity.id} className="flex items-start space-x-3 pb-4 border-b border-border/30 last:border-b-0">
+                        <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center mt-0.5">
+                          <Activity className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-sm font-medium">{activity.description}</p>
+                          <p className="text-xs text-muted-foreground">{formatDateTime(activity.timestamp)}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </div>
+    </Layout>
+  );
+}
