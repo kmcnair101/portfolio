@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Login from "./pages/Login";
+import Client from "./pages/Client";
 import CRM from "./pages/CRM";
 import Payments from "./pages/Payments";
 import Marketing from "./pages/Marketing";
