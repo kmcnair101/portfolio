@@ -302,7 +302,7 @@ export default function Client() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm text-muted-foreground">Active Projects</p>
-                        <p className="text-2xl font-light">{mockClient.activeProjects}</p>
+                        <p className="text-2xl font-light">1</p>
                       </div>
                       <FolderOpen className="h-8 w-8 text-blue-600" />
                     </div>
