@@ -14,6 +14,7 @@ import { useState } from "react";
 const navigationItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "About", href: "/about", icon: FileText },
+  { name: "Client", href: "/client", icon: FileText },
 ];
 
 export default function Navigation() {
