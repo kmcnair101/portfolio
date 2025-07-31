@@ -238,12 +238,12 @@ export default function Client() {
 
   // Notification counts
   const notifications = {
-    projects: 1, // 1 milestone needs approval
-    messages: 2, // 2 unread messages
+    projects: 1, // 1 code review needs approval
+    messages: 2, // 2 technical updates
     invoices: 1, // 1 pending invoice
-    proposals: 0, // No pending proposals
-    files: 1, // 1 new file uploaded
-    activity: 0 // No new activity
+    proposals: 0, // No pending technical proposals
+    files: 1, // 1 new deliverable uploaded
+    activity: 0 // No new development activity
   };
 
   const handleLogout = () => {
