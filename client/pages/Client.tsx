@@ -138,29 +138,47 @@ const mockMessages = [
 const mockFiles = [
   {
     id: 1,
-    name: "Project_Brief_v2.pdf",
+    name: "Technical_Requirements_v2.pdf",
     type: "pdf",
     size: "2.4 MB",
-    category: "contracts",
+    category: "documentation",
     uploadedDate: "2024-01-01",
     uploadedBy: "client"
   },
   {
     id: 2,
-    name: "Design_Mockups_v1.zip",
-    type: "zip", 
-    size: "15.7 MB",
+    name: "API_Documentation_v1.zip",
+    type: "zip",
+    size: "8.3 MB",
     category: "deliverables",
     uploadedDate: "2024-01-15",
     uploadedBy: "freelancer"
   },
   {
     id: 3,
-    name: "Brand_Guidelines.pdf",
-    type: "pdf",
-    size: "8.2 MB",
+    name: "Database_Schema_Design.sql",
+    type: "sql",
+    size: "156 KB",
     category: "deliverables",
+    uploadedDate: "2024-01-10",
+    uploadedBy: "freelancer"
+  },
+  {
+    id: 4,
+    name: "Deployment_Guide.md",
+    type: "md",
+    size: "45 KB",
+    category: "documentation",
     uploadedDate: "2023-12-15",
+    uploadedBy: "freelancer"
+  },
+  {
+    id: 5,
+    name: "Frontend_Components_v2.zip",
+    type: "zip",
+    size: "12.1 MB",
+    category: "source_code",
+    uploadedDate: "2024-01-15",
     uploadedBy: "freelancer"
   }
 ];
