@@ -22,7 +22,7 @@ const adminTools = [
     icon: Users,
     title: "CRM",
     description: "Manage customers and sales pipeline",
-    href: "/crm",
+    href: "/admin/crm",
     color: "bg-blue-500/10 text-blue-600",
     stats: "127 contacts",
     growth: "+12%"
@@ -31,7 +31,7 @@ const adminTools = [
     icon: CreditCard,
     title: "Payments",
     description: "Invoicing and payment processing",
-    href: "/payments",
+    href: "/admin/payments",
     color: "bg-green-500/10 text-green-600",
     stats: "$24,580 MTD",
     growth: "+8%"
@@ -40,7 +40,7 @@ const adminTools = [
     icon: Mail,
     title: "Marketing",
     description: "Automated campaigns and outreach",
-    href: "/marketing",
+    href: "/admin/marketing",
     color: "bg-purple-500/10 text-purple-600",
     stats: "89.2% open rate",
     growth: "+5%"
@@ -49,7 +49,7 @@ const adminTools = [
     icon: BarChart3,
     title: "Analytics",
     description: "Business insights and reporting",
-    href: "/analytics",
+    href: "/admin/analytics",
     color: "bg-orange-500/10 text-orange-600",
     stats: "15.3K visitors",
     growth: "+18%"
@@ -58,7 +58,7 @@ const adminTools = [
     icon: FileText,
     title: "Client Portal",
     description: "Manage client portal settings",
-    href: "/portal",
+    href: "/admin/portal",
     color: "bg-pink-500/10 text-pink-600",
     stats: "23 active clients",
     growth: "+3%"

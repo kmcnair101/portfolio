@@ -48,27 +48,27 @@ const App = () => (
                   <Admin />
                 </ProtectedRoute>
               } />
-              <Route path="/crm" element={
+              <Route path="/admin/crm" element={
                 <ProtectedRoute>
                   <CRM />
                 </ProtectedRoute>
               } />
-              <Route path="/payments" element={
+              <Route path="/admin/payments" element={
                 <ProtectedRoute>
                   <Payments />
                 </ProtectedRoute>
               } />
-              <Route path="/marketing" element={
+              <Route path="/admin/marketing" element={
                 <ProtectedRoute>
                   <Marketing />
                 </ProtectedRoute>
               } />
-              <Route path="/analytics" element={
+              <Route path="/admin/analytics" element={
                 <ProtectedRoute>
                   <Analytics />
                 </ProtectedRoute>
               } />
-              <Route path="/portal" element={
+              <Route path="/admin/portal" element={
                 <ProtectedRoute>
                   <ClientPortal />
                 </ProtectedRoute>
