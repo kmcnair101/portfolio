@@ -114,21 +114,21 @@ const mockMessages = [
   {
     id: 1,
     sender: "Kris McNair",
-    message: "Hi Sarah! I've uploaded the latest design mockups for your review. Please let me know your thoughts.",
+    message: "Hi Sarah! I've completed the authentication system and deployed the API to staging. The frontend components are ready for your review.",
     timestamp: "2024-01-15T14:30:00",
     isFromClient: false
   },
   {
     id: 2,
     sender: "Sarah Johnson",
-    message: "Thanks! I love the direction. Just have a few minor feedback points I'll share shortly.",
+    message: "Excellent work! The API responses look great. Could we add pagination to the product listings and implement search functionality?",
     timestamp: "2024-01-15T15:45:00",
     isFromClient: true
   },
   {
     id: 3,
     sender: "Kris McNair",
-    message: "Perfect! Take your time with the review. I'll be ready to implement any changes.",
+    message: "Absolutely! I'll implement pagination and search with filtering options. Should have that ready by tomorrow.",
     timestamp: "2024-01-15T16:00:00",
     isFromClient: false
   }
