@@ -293,12 +293,47 @@ export default function Client() {
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
             <TabsList className="grid w-full grid-cols-8">
               <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-              <TabsTrigger value="projects">Projects</TabsTrigger>
-              <TabsTrigger value="messages">Messages</TabsTrigger>
-              <TabsTrigger value="invoices">Invoices</TabsTrigger>
-              <TabsTrigger value="proposals">Proposals</TabsTrigger>
+              <TabsTrigger value="projects" className="relative">
+                Projects
+                {notifications.projects > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {notifications.projects}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="messages" className="relative">
+                Messages
+                {notifications.messages > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {notifications.messages}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="invoices" className="relative">
+                Invoices
+                {notifications.invoices > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {notifications.invoices}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="proposals" className="relative">
+                Proposals
+                {notifications.proposals > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {notifications.proposals}
+                  </span>
+                )}
+              </TabsTrigger>
               <TabsTrigger value="scheduling">Schedule</TabsTrigger>
-              <TabsTrigger value="files">File Vault</TabsTrigger>
+              <TabsTrigger value="files" className="relative">
+                File Vault
+                {notifications.files > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {notifications.files}
+                  </span>
+                )}
+              </TabsTrigger>
               <TabsTrigger value="activity">Activity</TabsTrigger>
             </TabsList>
 
