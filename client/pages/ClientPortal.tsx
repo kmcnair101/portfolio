@@ -469,6 +469,11 @@ export default function ClientPortal() {
                               <Badge className={statusColors[client.status]} variant="secondary">
                                 {client.status.charAt(0).toUpperCase() + client.status.slice(1)}
                               </Badge>
+                              {client.status === 'pending' && (
+                                <Badge variant="destructive" className="text-xs animate-pulse">
+                                  Setup Required
+                                </Badge>
+                              )}
                             </div>
                             <p className="text-sm text-muted-foreground mb-2">{client.contactPerson}</p>
                             <div className="flex items-center gap-6 text-sm text-muted-foreground mb-2">
