@@ -44,34 +44,36 @@ import {
 const mockProjects = [
   {
     id: "PROJ-001",
-    name: "Web Application Redesign",
+    name: "E-commerce Platform Development",
     status: "in-progress",
     progress: 65,
     startDate: "2024-01-01",
-    dueDate: "2024-02-15",
-    value: 15000,
-    description: "Complete redesign of the company web application with modern UI/UX",
+    dueDate: "2024-03-15",
+    value: 25000,
+    description: "Full-stack e-commerce platform with React, Node.js, and PostgreSQL",
+    tech: ["React", "Node.js", "PostgreSQL", "Stripe API", "AWS"],
     milestones: [
-      { id: 1, name: "Discovery & Research", status: "completed", date: "2024-01-05", description: "User research and requirements gathering" },
-      { id: 2, name: "Design Mockups", status: "in-progress", date: "2024-01-20", description: "Creating wireframes and visual designs", needsApproval: true },
-      { id: 3, name: "Development Phase", status: "pending", date: "2024-02-01", description: "Frontend and backend development" },
-      { id: 4, name: "Testing & Launch", status: "pending", date: "2024-02-15", description: "QA testing and production deployment" }
+      { id: 1, name: "API Architecture & Database Design", status: "completed", date: "2024-01-05", description: "RESTful API design and database schema implementation" },
+      { id: 2, name: "Frontend Components & Authentication", status: "in-progress", date: "2024-01-20", description: "React components, user auth, and payment integration", needsApproval: true },
+      { id: 3, name: "Backend Services & Testing", status: "pending", date: "2024-02-15", description: "Order processing, inventory management, and automated testing" },
+      { id: 4, name: "Deployment & Performance Optimization", status: "pending", date: "2024-03-15", description: "AWS deployment, CI/CD pipeline, and performance tuning" }
     ]
   },
   {
     id: "PROJ-002",
-    name: "Brand Identity Package",
+    name: "Mobile App Backend API",
     status: "completed",
     progress: 100,
     startDate: "2023-11-01",
     dueDate: "2023-12-15",
-    value: 8500,
-    description: "Complete brand identity including logo, colors, and guidelines",
+    value: 12000,
+    description: "RESTful API backend for iOS/Android fitness tracking application",
+    tech: ["Node.js", "Express", "MongoDB", "JWT", "Docker"],
     milestones: [
-      { id: 1, name: "Brand Discovery", status: "completed", date: "2023-11-05" },
-      { id: 2, name: "Logo Design", status: "completed", date: "2023-11-20" },
-      { id: 3, name: "Brand Guidelines", status: "completed", date: "2023-12-10" },
-      { id: 4, name: "Final Delivery", status: "completed", date: "2023-12-15" }
+      { id: 1, name: "API Design & Documentation", status: "completed", date: "2023-11-05" },
+      { id: 2, name: "Core Backend Development", status: "completed", date: "2023-11-20" },
+      { id: 3, name: "Testing & Security Implementation", status: "completed", date: "2023-12-10" },
+      { id: 4, name: "Deployment & Monitoring Setup", status: "completed", date: "2023-12-15" }
     ]
   }
 ];
