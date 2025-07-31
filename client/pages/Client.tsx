@@ -82,30 +82,30 @@ const mockProjects = [
 const mockInvoices = [
   {
     id: "INV-001",
-    projectName: "Web Application Redesign",
-    amount: 7500,
+    projectName: "E-commerce Platform Development",
+    amount: 12500,
     status: "paid",
     dueDate: "2024-01-15",
     paidDate: "2024-01-12",
-    description: "50% milestone payment"
+    description: "50% milestone payment - API & Frontend development"
   },
   {
     id: "INV-002",
-    projectName: "Web Application Redesign", 
-    amount: 7500,
+    projectName: "E-commerce Platform Development",
+    amount: 12500,
     status: "pending",
-    dueDate: "2024-02-15",
+    dueDate: "2024-03-15",
     paidDate: null,
-    description: "Final payment on completion"
+    description: "Final payment on completion & deployment"
   },
   {
     id: "INV-003",
-    projectName: "Brand Identity Package",
-    amount: 8500,
+    projectName: "Mobile App Backend API",
+    amount: 12000,
     status: "paid",
     dueDate: "2023-12-20",
     paidDate: "2023-12-18",
-    description: "Full project payment"
+    description: "Full backend development & deployment"
   }
 ];
 
