@@ -246,6 +246,14 @@ export default function ClientPortal() {
   const [statusFilter, setStatusFilter] = useState("all");
   const [selectedClient, setSelectedClient] = useState(null);
 
+  // Admin notification counts
+  const adminNotifications = {
+    clients: mockClients.filter(c => c.status === 'pending' || c.messagesUnread > 0).length, // Pending clients or clients with unread messages
+    projects: mockProjects.filter(p => p.status === 'in-progress' && p.progress < 50).length, // Projects needing attention
+    documents: mockDocuments.filter(d => d.uploadedBy === 'Client' && d.uploadedDate === '2024-01-08').length, // New client uploads
+    messages: mockMessages.filter(m => m.unread).length // Unread messages from clients
+  };
+
   const filteredClients = mockClients.filter(client => {
     const matchesSearch = client.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          client.contactPerson.toLowerCase().includes(searchTerm.toLowerCase()) ||
