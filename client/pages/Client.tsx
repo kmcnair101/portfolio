@@ -686,7 +686,14 @@ export default function Client() {
                             <FileText className="h-6 w-6 text-muted-foreground" />
                           </div>
                           <div>
-                            <h4 className="font-medium">{file.name}</h4>
+                            <div className="flex items-center gap-2">
+                              <h4 className="font-medium">{file.name}</h4>
+                              {file.uploadedDate === "2024-01-15" && file.uploadedBy === "freelancer" && (
+                                <Badge variant="destructive" className="text-xs animate-pulse">
+                                  New
+                                </Badge>
+                              )}
+                            </div>
                             <p className="text-sm text-muted-foreground">
                               {file.size} • Uploaded {formatDate(file.uploadedDate)} by {file.uploadedBy}
                             </p>
