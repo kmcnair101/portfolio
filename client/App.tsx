@@ -104,10 +104,9 @@ const App = () => (
   </QueryClientProvider>
 );
 
-// Only create root if it doesn't exist (prevents duplicate root warning in development)
+// Only create root if container is empty (prevents duplicate root warning)
 const container = document.getElementById("root")!;
-if (!container._reactRoot) {
+if (!container.hasChildNodes()) {
   const root = createRoot(container);
-  container._reactRoot = root;
   root.render(<App />);
 }
