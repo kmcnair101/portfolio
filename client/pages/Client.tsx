@@ -662,7 +662,14 @@ export default function Client() {
             {/* File Vault Tab */}
             <TabsContent value="files" className="space-y-6">
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-medium">File Vault</h3>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-lg font-medium">File Vault</h3>
+                  {notifications.files > 0 && (
+                    <Badge variant="secondary" className="text-xs">
+                      {notifications.files} new file
+                    </Badge>
+                  )}
+                </div>
                 <Button>
                   <Upload className="h-4 w-4 mr-2" />
                   Upload File
