@@ -566,14 +566,14 @@ export default function Client() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    Messages with Kris McNair
+                    Development Updates with Kris McNair
                     {notifications.messages > 0 && (
                       <Badge variant="destructive" className="text-xs">
                         {notifications.messages} new
                       </Badge>
                     )}
                   </CardTitle>
-                  <CardDescription>Secure communication channel</CardDescription>
+                  <CardDescription>Technical discussions and project updates</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4 mb-6 max-h-96 overflow-y-auto">
