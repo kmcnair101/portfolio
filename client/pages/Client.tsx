@@ -600,10 +600,15 @@ export default function Client() {
                               Download
                             </Button>
                             {invoice.status === 'pending' && (
-                              <Button size="sm">
-                                <CreditCard className="h-4 w-4 mr-1" />
-                                Pay Now
-                              </Button>
+                              <>
+                                <Button size="sm" className="animate-pulse">
+                                  <CreditCard className="h-4 w-4 mr-1" />
+                                  Pay Now
+                                </Button>
+                                <Badge variant="destructive" className="text-xs self-center">
+                                  Payment Due
+                                </Badge>
+                              </>
                             )}
                           </div>
                         </div>
