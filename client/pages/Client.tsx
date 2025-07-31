@@ -681,19 +681,28 @@ export default function Client() {
             <TabsContent value="scheduling" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Schedule a Meeting</CardTitle>
-                  <CardDescription>Book a call or meeting with Kris McNair</CardDescription>
+                  <CardTitle>Schedule Technical Consultation</CardTitle>
+                  <CardDescription>Book technical reviews, sprint planning, or strategy sessions with Kris McNair</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <Button className="h-24 flex-col space-y-2">
                       <Phone className="h-6 w-6" />
-                      <span>Schedule Phone Call</span>
+                      <span>Technical Review Call</span>
                     </Button>
                     <Button className="h-24 flex-col space-y-2" variant="outline">
                       <Video className="h-6 w-6" />
-                      <span>Schedule Video Call</span>
+                      <span>Screen Share Session</span>
                     </Button>
+                  </div>
+                  <div className="mt-6 p-4 bg-muted/50 rounded-lg">
+                    <h4 className="font-medium mb-2">Available Session Types:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• Code reviews and technical feedback</li>
+                      <li>• Sprint planning and milestone discussions</li>
+                      <li>• Architecture and technology decisions</li>
+                      <li>• Deployment and infrastructure planning</li>
+                    </ul>
                   </div>
                 </CardContent>
               </Card>
