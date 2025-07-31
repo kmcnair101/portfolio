@@ -653,7 +653,9 @@ export default function ClientPortal() {
                               <div className="flex items-center gap-3 mb-1">
                                 <h4 className="font-medium">{message.subject}</h4>
                                 {message.unread && (
-                                  <Badge variant="destructive" className="text-xs">New</Badge>
+                                  <Badge variant="destructive" className="text-xs animate-pulse">
+                                    Unread
+                                  </Badge>
                                 )}
                               </div>
                               <p className="text-sm text-muted-foreground mb-1">
