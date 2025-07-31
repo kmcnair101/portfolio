@@ -382,7 +382,7 @@ export default function Client() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">Active Projects</p>
+                        <p className="text-sm text-muted-foreground">Active Development</p>
                         <p className="text-2xl font-light">1</p>
                       </div>
                       <FolderOpen className="h-8 w-8 text-blue-600" />
@@ -393,7 +393,7 @@ export default function Client() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">Pending Approvals</p>
+                        <p className="text-sm text-muted-foreground">Code Reviews</p>
                         <p className="text-2xl font-light">1</p>
                       </div>
                       <AlertCircle className="h-8 w-8 text-orange-600" />
@@ -404,7 +404,7 @@ export default function Client() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">Unread Messages</p>
+                        <p className="text-sm text-muted-foreground">Technical Updates</p>
                         <p className="text-2xl font-light">2</p>
                       </div>
                       <MessageSquare className="h-8 w-8 text-green-600" />
