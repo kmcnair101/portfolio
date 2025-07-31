@@ -592,56 +592,7 @@ export default function Client() {
               </Card>
             </TabsContent>
 
-            {/* Analytics Tab */}
-            <TabsContent value="analytics" className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Project Analytics</CardTitle>
-                    <CardDescription>Progress and performance metrics</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">On-time Delivery Rate</span>
-                        <span className="font-medium">95%</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Average Response Time</span>
-                        <span className="font-medium">2.3 hours</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Client Satisfaction</span>
-                        <span className="font-medium">4.9/5</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Communication Stats</CardTitle>
-                    <CardDescription>Your interaction metrics</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Messages Exchanged</span>
-                        <span className="font-medium">127</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Files Shared</span>
-                        <span className="font-medium">18</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm text-muted-foreground">Meetings Held</span>
-                        <span className="font-medium">8</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
 
             {/* File Vault Tab */}
             <TabsContent value="files" className="space-y-6">
