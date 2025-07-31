@@ -602,7 +602,14 @@ export default function ClientPortal() {
                               <FileText className="h-6 w-6 text-muted-foreground" />
                             </div>
                             <div>
-                              <h4 className="font-medium">{document.name}</h4>
+                              <div className="flex items-center gap-2">
+                                <h4 className="font-medium">{document.name}</h4>
+                                {document.uploadedBy === 'Client' && document.uploadedDate === '2024-01-08' && (
+                                  <Badge variant="secondary" className="text-xs animate-pulse">
+                                    New Upload
+                                  </Badge>
+                                )}
+                              </div>
                               <p className="text-sm text-muted-foreground">
                                 {client?.name} • {document.size} • Uploaded {formatDate(document.uploadedDate)}
                               </p>
