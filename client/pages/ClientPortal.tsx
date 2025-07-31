@@ -347,7 +347,7 @@ export default function ClientPortal() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="relative">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -359,6 +359,13 @@ export default function ClientPortal() {
                   </div>
                   <MessageSquare className="h-8 w-8 text-orange-600" />
                 </div>
+                {unreadMessages > 0 && (
+                  <div className="absolute top-2 right-2">
+                    <span className="bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center animate-pulse">
+                      !
+                    </span>
+                  </div>
+                )}
               </CardContent>
             </Card>
             <Card>
