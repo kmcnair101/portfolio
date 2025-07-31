@@ -664,13 +664,14 @@ export default function Client() {
             <TabsContent value="proposals" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Proposals & Contracts</CardTitle>
-                  <CardDescription>Review and manage project proposals</CardDescription>
+                  <CardTitle>Technical Proposals & SOW</CardTitle>
+                  <CardDescription>Review project scopes, technical specifications, and contracts</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="text-center py-8">
                     <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground">No proposals pending review</p>
+                    <p className="text-muted-foreground">No technical proposals pending review</p>
+                    <p className="text-xs text-muted-foreground mt-2">Future feature enhancements and new project proposals will appear here</p>
                   </div>
                 </CardContent>
               </Card>
