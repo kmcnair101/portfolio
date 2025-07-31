@@ -489,6 +489,15 @@ export default function Client() {
                             </Badge>
                           </CardTitle>
                           <CardDescription>{project.description}</CardDescription>
+                          {project.tech && (
+                            <div className="flex flex-wrap gap-1 mt-2">
+                              {project.tech.map((tech, index) => (
+                                <Badge key={index} variant="outline" className="text-xs">
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+                          )}
                         </div>
                         <div className="text-right">
                           <div className="text-lg font-medium">${project.value.toLocaleString()}</div>
