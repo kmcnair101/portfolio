@@ -379,10 +379,38 @@ export default function ClientPortal() {
 
           <Tabs defaultValue="clients" className="space-y-6">
             <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="clients">Clients</TabsTrigger>
-              <TabsTrigger value="projects">Projects</TabsTrigger>
-              <TabsTrigger value="documents">Documents</TabsTrigger>
-              <TabsTrigger value="messages">Messages</TabsTrigger>
+              <TabsTrigger value="clients" className="relative">
+                Clients
+                {adminNotifications.clients > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {adminNotifications.clients}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="projects" className="relative">
+                Projects
+                {adminNotifications.projects > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {adminNotifications.projects}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="documents" className="relative">
+                Documents
+                {adminNotifications.documents > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {adminNotifications.documents}
+                  </span>
+                )}
+              </TabsTrigger>
+              <TabsTrigger value="messages" className="relative">
+                Messages
+                {adminNotifications.messages > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                    {adminNotifications.messages}
+                  </span>
+                )}
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="clients" className="space-y-6">
