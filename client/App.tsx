@@ -38,41 +38,62 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
               <Route path="/client-auth" element={<ClientAuth />} />
-              <Route path="/client" element={
-                <ProtectedClientRoute>
-                  <Client />
-                </ProtectedClientRoute>
-              } />
-              <Route path="/admin" element={
-                <ProtectedRoute>
-                  <Admin />
-                </ProtectedRoute>
-              } />
-              <Route path="/admin/crm" element={
-                <ProtectedRoute>
-                  <CRM />
-                </ProtectedRoute>
-              } />
-              <Route path="/admin/payments" element={
-                <ProtectedRoute>
-                  <Payments />
-                </ProtectedRoute>
-              } />
-              <Route path="/admin/marketing" element={
-                <ProtectedRoute>
-                  <Marketing />
-                </ProtectedRoute>
-              } />
-              <Route path="/admin/analytics" element={
-                <ProtectedRoute>
-                  <Analytics />
-                </ProtectedRoute>
-              } />
-              <Route path="/admin/portal" element={
-                <ProtectedRoute>
-                  <ClientPortal />
-                </ProtectedRoute>
-              } />
+              <Route
+                path="/client"
+                element={
+                  <ProtectedClientRoute>
+                    <Client />
+                  </ProtectedClientRoute>
+                }
+              />
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute>
+                    <Admin />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/crm"
+                element={
+                  <ProtectedRoute>
+                    <CRM />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/payments"
+                element={
+                  <ProtectedRoute>
+                    <Payments />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/marketing"
+                element={
+                  <ProtectedRoute>
+                    <Marketing />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/analytics"
+                element={
+                  <ProtectedRoute>
+                    <Analytics />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/portal"
+                element={
+                  <ProtectedRoute>
+                    <ClientPortal />
+                  </ProtectedRoute>
+                }
+              />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

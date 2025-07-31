@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useClientAuth } from "@/contexts/ClientAuthContext";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/Layout";
-import { 
+import {
   Home,
   FolderOpen,
   MessageSquare,
@@ -35,7 +41,7 @@ import {
   Edit,
   Check,
   X,
-  Plus
+  Plus,
 } from "lucide-react";
 
 // Client data comes from auth context
@@ -50,14 +56,41 @@ const mockProjects = [
     startDate: "2024-01-01",
     dueDate: "2024-03-15",
     value: 25000,
-    description: "Full-stack e-commerce platform with React, Node.js, and PostgreSQL",
+    description:
+      "Full-stack e-commerce platform with React, Node.js, and PostgreSQL",
     tech: ["React", "Node.js", "PostgreSQL", "Stripe API", "AWS"],
     milestones: [
-      { id: 1, name: "API Architecture & Database Design", status: "completed", date: "2024-01-05", description: "RESTful API design and database schema implementation" },
-      { id: 2, name: "Frontend Components & Authentication", status: "in-progress", date: "2024-01-20", description: "React components, user auth, and payment integration", needsApproval: true },
-      { id: 3, name: "Backend Services & Testing", status: "pending", date: "2024-02-15", description: "Order processing, inventory management, and automated testing" },
-      { id: 4, name: "Deployment & Performance Optimization", status: "pending", date: "2024-03-15", description: "AWS deployment, CI/CD pipeline, and performance tuning" }
-    ]
+      {
+        id: 1,
+        name: "API Architecture & Database Design",
+        status: "completed",
+        date: "2024-01-05",
+        description: "RESTful API design and database schema implementation",
+      },
+      {
+        id: 2,
+        name: "Frontend Components & Authentication",
+        status: "in-progress",
+        date: "2024-01-20",
+        description: "React components, user auth, and payment integration",
+        needsApproval: true,
+      },
+      {
+        id: 3,
+        name: "Backend Services & Testing",
+        status: "pending",
+        date: "2024-02-15",
+        description:
+          "Order processing, inventory management, and automated testing",
+      },
+      {
+        id: 4,
+        name: "Deployment & Performance Optimization",
+        status: "pending",
+        date: "2024-03-15",
+        description: "AWS deployment, CI/CD pipeline, and performance tuning",
+      },
+    ],
   },
   {
     id: "PROJ-002",
@@ -67,15 +100,36 @@ const mockProjects = [
     startDate: "2023-11-01",
     dueDate: "2023-12-15",
     value: 12000,
-    description: "RESTful API backend for iOS/Android fitness tracking application",
+    description:
+      "RESTful API backend for iOS/Android fitness tracking application",
     tech: ["Node.js", "Express", "MongoDB", "JWT", "Docker"],
     milestones: [
-      { id: 1, name: "API Design & Documentation", status: "completed", date: "2023-11-05" },
-      { id: 2, name: "Core Backend Development", status: "completed", date: "2023-11-20" },
-      { id: 3, name: "Testing & Security Implementation", status: "completed", date: "2023-12-10" },
-      { id: 4, name: "Deployment & Monitoring Setup", status: "completed", date: "2023-12-15" }
-    ]
-  }
+      {
+        id: 1,
+        name: "API Design & Documentation",
+        status: "completed",
+        date: "2023-11-05",
+      },
+      {
+        id: 2,
+        name: "Core Backend Development",
+        status: "completed",
+        date: "2023-11-20",
+      },
+      {
+        id: 3,
+        name: "Testing & Security Implementation",
+        status: "completed",
+        date: "2023-12-10",
+      },
+      {
+        id: 4,
+        name: "Deployment & Monitoring Setup",
+        status: "completed",
+        date: "2023-12-15",
+      },
+    ],
+  },
 ];
 
 // Mock invoices data
@@ -87,7 +141,7 @@ const mockInvoices = [
     status: "paid",
     dueDate: "2024-01-15",
     paidDate: "2024-01-12",
-    description: "50% milestone payment - API & Frontend development"
+    description: "50% milestone payment - API & Frontend development",
   },
   {
     id: "INV-002",
@@ -96,7 +150,7 @@ const mockInvoices = [
     status: "pending",
     dueDate: "2024-03-15",
     paidDate: null,
-    description: "Final payment on completion & deployment"
+    description: "Final payment on completion & deployment",
   },
   {
     id: "INV-003",
@@ -105,8 +159,8 @@ const mockInvoices = [
     status: "paid",
     dueDate: "2023-12-20",
     paidDate: "2023-12-18",
-    description: "Full backend development & deployment"
-  }
+    description: "Full backend development & deployment",
+  },
 ];
 
 // Mock messages data
@@ -114,24 +168,27 @@ const mockMessages = [
   {
     id: 1,
     sender: "Kris McNair",
-    message: "Hi Sarah! I've completed the authentication system and deployed the API to staging. The frontend components are ready for your review.",
+    message:
+      "Hi Sarah! I've completed the authentication system and deployed the API to staging. The frontend components are ready for your review.",
     timestamp: "2024-01-15T14:30:00",
-    isFromClient: false
+    isFromClient: false,
   },
   {
     id: 2,
     sender: "Sarah Johnson",
-    message: "Excellent work! The API responses look great. Could we add pagination to the product listings and implement search functionality?",
+    message:
+      "Excellent work! The API responses look great. Could we add pagination to the product listings and implement search functionality?",
     timestamp: "2024-01-15T15:45:00",
-    isFromClient: true
+    isFromClient: true,
   },
   {
     id: 3,
     sender: "Kris McNair",
-    message: "Absolutely! I'll implement pagination and search with filtering options. Should have that ready by tomorrow.",
+    message:
+      "Absolutely! I'll implement pagination and search with filtering options. Should have that ready by tomorrow.",
     timestamp: "2024-01-15T16:00:00",
-    isFromClient: false
-  }
+    isFromClient: false,
+  },
 ];
 
 // Mock files data
@@ -143,7 +200,7 @@ const mockFiles = [
     size: "2.4 MB",
     category: "documentation",
     uploadedDate: "2024-01-01",
-    uploadedBy: "client"
+    uploadedBy: "client",
   },
   {
     id: 2,
@@ -152,7 +209,7 @@ const mockFiles = [
     size: "8.3 MB",
     category: "deliverables",
     uploadedDate: "2024-01-15",
-    uploadedBy: "freelancer"
+    uploadedBy: "freelancer",
   },
   {
     id: 3,
@@ -161,7 +218,7 @@ const mockFiles = [
     size: "156 KB",
     category: "deliverables",
     uploadedDate: "2024-01-10",
-    uploadedBy: "freelancer"
+    uploadedBy: "freelancer",
   },
   {
     id: 4,
@@ -170,7 +227,7 @@ const mockFiles = [
     size: "45 KB",
     category: "documentation",
     uploadedDate: "2023-12-15",
-    uploadedBy: "freelancer"
+    uploadedBy: "freelancer",
   },
   {
     id: 5,
@@ -179,8 +236,8 @@ const mockFiles = [
     size: "12.1 MB",
     category: "source_code",
     uploadedDate: "2024-01-15",
-    uploadedBy: "freelancer"
-  }
+    uploadedBy: "freelancer",
+  },
 ];
 
 // Mock activity data
@@ -188,39 +245,40 @@ const mockActivity = [
   {
     id: 1,
     type: "milestone",
-    description: "Frontend Components & Authentication milestone ready for review",
-    timestamp: "2024-01-15T14:30:00"
+    description:
+      "Frontend Components & Authentication milestone ready for review",
+    timestamp: "2024-01-15T14:30:00",
   },
   {
     id: 2,
     type: "payment",
     description: "Invoice INV-001 payment received",
-    timestamp: "2024-01-12T10:15:00"
+    timestamp: "2024-01-12T10:15:00",
   },
   {
     id: 3,
     type: "deployment",
     description: "API deployed to staging environment",
-    timestamp: "2024-01-14T09:30:00"
+    timestamp: "2024-01-14T09:30:00",
   },
   {
     id: 4,
     type: "file",
     description: "New file uploaded: Frontend_Components_v2.zip",
-    timestamp: "2024-01-15T14:25:00"
+    timestamp: "2024-01-15T14:25:00",
   },
   {
     id: 5,
     type: "code_review",
     description: "Code review completed for authentication system",
-    timestamp: "2024-01-13T11:45:00"
+    timestamp: "2024-01-13T11:45:00",
   },
   {
     id: 6,
     type: "testing",
     description: "Unit tests added for API endpoints",
-    timestamp: "2024-01-12T16:20:00"
-  }
+    timestamp: "2024-01-12T16:20:00",
+  },
 ];
 
 const statusColors = {
@@ -228,7 +286,7 @@ const statusColors = {
   completed: "bg-green-100 text-green-700",
   pending: "bg-yellow-100 text-yellow-700",
   paid: "bg-green-100 text-green-700",
-  overdue: "bg-red-100 text-red-700"
+  overdue: "bg-red-100 text-red-700",
 };
 
 export default function Client() {
@@ -243,12 +301,12 @@ export default function Client() {
     invoices: 1, // 1 pending invoice
     proposals: 0, // No pending technical proposals
     files: 1, // 1 new deliverable uploaded
-    activity: 0 // No new development activity
+    activity: 0, // No new development activity
   };
 
   const handleLogout = () => {
     logout();
-    window.location.href = '/';
+    window.location.href = "/";
   };
 
   // If client data is not loaded yet, show loading
@@ -263,20 +321,20 @@ export default function Client() {
   }
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
   const formatDateTime = (dateString) => {
-    return new Date(dateString).toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+    return new Date(dateString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     });
   };
 
@@ -303,7 +361,9 @@ export default function Client() {
                 <User className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-3xl font-light tracking-tight">Welcome back, {client.name}</h1>
+                <h1 className="text-3xl font-light tracking-tight">
+                  Welcome back, {client.name}
+                </h1>
                 <p className="text-muted-foreground mt-1">{client.company}</p>
               </div>
             </div>
@@ -311,9 +371,18 @@ export default function Client() {
               <Button variant="outline" size="sm" className="relative">
                 <Bell className="h-4 w-4 mr-2" />
                 Notifications
-                {(notifications.projects + notifications.messages + notifications.invoices + notifications.proposals + notifications.files) > 0 && (
+                {notifications.projects +
+                  notifications.messages +
+                  notifications.invoices +
+                  notifications.proposals +
+                  notifications.files >
+                  0 && (
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    {notifications.projects + notifications.messages + notifications.invoices + notifications.proposals + notifications.files}
+                    {notifications.projects +
+                      notifications.messages +
+                      notifications.invoices +
+                      notifications.proposals +
+                      notifications.files}
                   </span>
                 )}
               </Button>
@@ -327,7 +396,11 @@ export default function Client() {
             </div>
           </div>
 
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+          <Tabs
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="space-y-6"
+          >
             <TabsList className="grid w-full grid-cols-8">
               <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
               <TabsTrigger value="projects" className="relative">
@@ -382,7 +455,9 @@ export default function Client() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">Active Development</p>
+                        <p className="text-sm text-muted-foreground">
+                          Active Development
+                        </p>
                         <p className="text-2xl font-light">1</p>
                       </div>
                       <FolderOpen className="h-8 w-8 text-blue-600" />
@@ -393,7 +468,9 @@ export default function Client() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">Code Reviews</p>
+                        <p className="text-sm text-muted-foreground">
+                          Code Reviews
+                        </p>
                         <p className="text-2xl font-light">1</p>
                       </div>
                       <AlertCircle className="h-8 w-8 text-orange-600" />
@@ -404,7 +481,9 @@ export default function Client() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">Technical Updates</p>
+                        <p className="text-sm text-muted-foreground">
+                          Technical Updates
+                        </p>
                         <p className="text-2xl font-light">2</p>
                       </div>
                       <MessageSquare className="h-8 w-8 text-green-600" />
@@ -415,7 +494,9 @@ export default function Client() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">Pending Invoices</p>
+                        <p className="text-sm text-muted-foreground">
+                          Pending Invoices
+                        </p>
                         <p className="text-2xl font-light">1</p>
                       </div>
                       <CreditCard className="h-8 w-8 text-purple-600" />
@@ -429,42 +510,58 @@ export default function Client() {
                 <Card>
                   <CardHeader>
                     <CardTitle>Current Project Status</CardTitle>
-                    <CardDescription>Your active projects and their progress</CardDescription>
+                    <CardDescription>
+                      Your active projects and their progress
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    {mockProjects.filter(p => p.status === 'in-progress').map((project) => (
-                      <div key={project.id} className="space-y-3">
-                        <div className="flex justify-between items-center">
-                          <h4 className="font-medium">{project.name}</h4>
-                          <Badge className={statusColors[project.status]} variant="secondary">
-                            {project.progress}% Complete
-                          </Badge>
+                    {mockProjects
+                      .filter((p) => p.status === "in-progress")
+                      .map((project) => (
+                        <div key={project.id} className="space-y-3">
+                          <div className="flex justify-between items-center">
+                            <h4 className="font-medium">{project.name}</h4>
+                            <Badge
+                              className={statusColors[project.status]}
+                              variant="secondary"
+                            >
+                              {project.progress}% Complete
+                            </Badge>
+                          </div>
+                          <div className="w-full bg-muted rounded-full h-2">
+                            <div
+                              className="bg-primary h-2 rounded-full transition-all duration-300"
+                              style={{ width: `${project.progress}%` }}
+                            ></div>
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            {project.description}
+                          </p>
                         </div>
-                        <div className="w-full bg-muted rounded-full h-2">
-                          <div 
-                            className="bg-primary h-2 rounded-full transition-all duration-300" 
-                            style={{ width: `${project.progress}%` }}
-                          ></div>
-                        </div>
-                        <p className="text-sm text-muted-foreground">{project.description}</p>
-                      </div>
-                    ))}
+                      ))}
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardHeader>
                     <CardTitle>Recent Activity</CardTitle>
-                    <CardDescription>Latest updates and actions</CardDescription>
+                    <CardDescription>
+                      Latest updates and actions
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
                       {mockActivity.slice(0, 4).map((activity) => (
-                        <div key={activity.id} className="flex items-start space-x-3">
+                        <div
+                          key={activity.id}
+                          className="flex items-start space-x-3"
+                        >
                           <div className="w-2 h-2 rounded-full bg-primary mt-2"></div>
                           <div className="flex-1">
                             <p className="text-sm">{activity.description}</p>
-                            <p className="text-xs text-muted-foreground">{formatDateTime(activity.timestamp)}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {formatDateTime(activity.timestamp)}
+                            </p>
                           </div>
                         </div>
                       ))}
@@ -484,15 +581,28 @@ export default function Client() {
                         <div>
                           <CardTitle className="flex items-center gap-3">
                             {project.name}
-                            <Badge className={statusColors[project.status]} variant="secondary">
-                              {project.status.replace('-', ' ').charAt(0).toUpperCase() + project.status.replace('-', ' ').slice(1)}
+                            <Badge
+                              className={statusColors[project.status]}
+                              variant="secondary"
+                            >
+                              {project.status
+                                .replace("-", " ")
+                                .charAt(0)
+                                .toUpperCase() +
+                                project.status.replace("-", " ").slice(1)}
                             </Badge>
                           </CardTitle>
-                          <CardDescription>{project.description}</CardDescription>
+                          <CardDescription>
+                            {project.description}
+                          </CardDescription>
                           {project.tech && (
                             <div className="flex flex-wrap gap-1 mt-2">
                               {project.tech.map((tech, index) => (
-                                <Badge key={index} variant="outline" className="text-xs">
+                                <Badge
+                                  key={index}
+                                  variant="outline"
+                                  className="text-xs"
+                                >
                                   {tech}
                                 </Badge>
                               ))}
@@ -500,8 +610,12 @@ export default function Client() {
                           )}
                         </div>
                         <div className="text-right">
-                          <div className="text-lg font-medium">${project.value.toLocaleString()}</div>
-                          <div className="text-sm text-muted-foreground">Due: {formatDate(project.dueDate)}</div>
+                          <div className="text-lg font-medium">
+                            ${project.value.toLocaleString()}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            Due: {formatDate(project.dueDate)}
+                          </div>
                         </div>
                       </div>
                     </CardHeader>
@@ -513,43 +627,80 @@ export default function Client() {
                             <span>{project.progress}%</span>
                           </div>
                           <div className="w-full bg-muted rounded-full h-2">
-                            <div 
-                              className="bg-primary h-2 rounded-full transition-all duration-300" 
+                            <div
+                              className="bg-primary h-2 rounded-full transition-all duration-300"
                               style={{ width: `${project.progress}%` }}
                             ></div>
                           </div>
                         </div>
 
                         <div>
-                          <h4 className="font-medium mb-3">Project Milestones</h4>
+                          <h4 className="font-medium mb-3">
+                            Project Milestones
+                          </h4>
                           <div className="space-y-3">
                             {project.milestones.map((milestone) => (
-                              <div key={milestone.id} className="flex items-center justify-between p-3 border rounded-lg">
+                              <div
+                                key={milestone.id}
+                                className="flex items-center justify-between p-3 border rounded-lg"
+                              >
                                 <div className="flex items-center space-x-3">
-                                  {milestone.status === 'completed' && <CheckCircle className="h-5 w-5 text-green-600" />}
-                                  {milestone.status === 'in-progress' && <Clock className="h-5 w-5 text-blue-600" />}
-                                  {milestone.status === 'pending' && <AlertCircle className="h-5 w-5 text-gray-400" />}
+                                  {milestone.status === "completed" && (
+                                    <CheckCircle className="h-5 w-5 text-green-600" />
+                                  )}
+                                  {milestone.status === "in-progress" && (
+                                    <Clock className="h-5 w-5 text-blue-600" />
+                                  )}
+                                  {milestone.status === "pending" && (
+                                    <AlertCircle className="h-5 w-5 text-gray-400" />
+                                  )}
                                   <div>
-                                    <div className="font-medium">{milestone.name}</div>
-                                    <div className="text-sm text-muted-foreground">{milestone.description}</div>
-                                    <div className="text-xs text-muted-foreground">Due: {formatDate(milestone.date)}</div>
+                                    <div className="font-medium">
+                                      {milestone.name}
+                                    </div>
+                                    <div className="text-sm text-muted-foreground">
+                                      {milestone.description}
+                                    </div>
+                                    <div className="text-xs text-muted-foreground">
+                                      Due: {formatDate(milestone.date)}
+                                    </div>
                                   </div>
                                 </div>
                                 {milestone.needsApproval && (
-                                <div className="flex gap-2 items-center">
-                                  <Badge variant="destructive" className="text-xs animate-pulse">
-                                    Action Required
-                                  </Badge>
-                                  <Button size="sm" onClick={() => handleApproveDecline(milestone.id, 'approve')}>
-                                    <Check className="h-4 w-4 mr-1" />
-                                    Approve
-                                  </Button>
-                                  <Button size="sm" variant="outline" onClick={() => handleApproveDecline(milestone.id, 'decline')}>
-                                    <X className="h-4 w-4 mr-1" />
-                                    Decline
-                                  </Button>
-                                </div>
-                              )}
+                                  <div className="flex gap-2 items-center">
+                                    <Badge
+                                      variant="destructive"
+                                      className="text-xs animate-pulse"
+                                    >
+                                      Action Required
+                                    </Badge>
+                                    <Button
+                                      size="sm"
+                                      onClick={() =>
+                                        handleApproveDecline(
+                                          milestone.id,
+                                          "approve",
+                                        )
+                                      }
+                                    >
+                                      <Check className="h-4 w-4 mr-1" />
+                                      Approve
+                                    </Button>
+                                    <Button
+                                      size="sm"
+                                      variant="outline"
+                                      onClick={() =>
+                                        handleApproveDecline(
+                                          milestone.id,
+                                          "decline",
+                                        )
+                                      }
+                                    >
+                                      <X className="h-4 w-4 mr-1" />
+                                      Decline
+                                    </Button>
+                                  </div>
+                                )}
                               </div>
                             ))}
                           </div>
@@ -573,20 +724,31 @@ export default function Client() {
                       </Badge>
                     )}
                   </CardTitle>
-                  <CardDescription>Technical discussions and project updates</CardDescription>
+                  <CardDescription>
+                    Technical discussions and project updates
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4 mb-6 max-h-96 overflow-y-auto">
                     {mockMessages.map((message) => (
-                      <div key={message.id} className={`flex ${message.isFromClient ? 'justify-end' : 'justify-start'}`}>
-                        <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                          message.isFromClient 
-                            ? 'bg-primary text-primary-foreground' 
-                            : 'bg-muted'
-                        }`}>
-                          <div className="text-sm font-medium mb-1">{message.sender}</div>
+                      <div
+                        key={message.id}
+                        className={`flex ${message.isFromClient ? "justify-end" : "justify-start"}`}
+                      >
+                        <div
+                          className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                            message.isFromClient
+                              ? "bg-primary text-primary-foreground"
+                              : "bg-muted"
+                          }`}
+                        >
+                          <div className="text-sm font-medium mb-1">
+                            {message.sender}
+                          </div>
                           <div className="text-sm">{message.message}</div>
-                          <div className={`text-xs mt-1 ${message.isFromClient ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
+                          <div
+                            className={`text-xs mt-1 ${message.isFromClient ? "text-primary-foreground/70" : "text-muted-foreground"}`}
+                          >
                             {formatDateTime(message.timestamp)}
                           </div>
                         </div>
@@ -601,7 +763,10 @@ export default function Client() {
                       className="flex-1"
                       rows={2}
                     />
-                    <Button onClick={handleSendMessage} disabled={!newMessage.trim()}>
+                    <Button
+                      onClick={handleSendMessage}
+                      disabled={!newMessage.trim()}
+                    >
                       <Send className="h-4 w-4" />
                     </Button>
                   </div>
@@ -621,32 +786,49 @@ export default function Client() {
                             <FileText className="h-6 w-6 text-muted-foreground" />
                           </div>
                           <div>
-                            <h3 className="font-medium text-lg">{invoice.id}</h3>
-                            <p className="text-sm text-muted-foreground">{invoice.projectName}</p>
-                            <p className="text-sm text-muted-foreground">{invoice.description}</p>
+                            <h3 className="font-medium text-lg">
+                              {invoice.id}
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                              {invoice.projectName}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              {invoice.description}
+                            </p>
                             <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
                               <div>Due: {formatDate(invoice.dueDate)}</div>
-                              {invoice.paidDate && <div>Paid: {formatDate(invoice.paidDate)}</div>}
+                              {invoice.paidDate && (
+                                <div>Paid: {formatDate(invoice.paidDate)}</div>
+                              )}
                             </div>
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="text-2xl font-medium">${invoice.amount.toLocaleString()}</div>
-                          <Badge className={statusColors[invoice.status]} variant="secondary">
-                            {invoice.status.charAt(0).toUpperCase() + invoice.status.slice(1)}
+                          <div className="text-2xl font-medium">
+                            ${invoice.amount.toLocaleString()}
+                          </div>
+                          <Badge
+                            className={statusColors[invoice.status]}
+                            variant="secondary"
+                          >
+                            {invoice.status.charAt(0).toUpperCase() +
+                              invoice.status.slice(1)}
                           </Badge>
                           <div className="flex gap-2 mt-3">
                             <Button size="sm" variant="outline">
                               <Download className="h-4 w-4 mr-1" />
                               Download
                             </Button>
-                            {invoice.status === 'pending' && (
+                            {invoice.status === "pending" && (
                               <>
                                 <Button size="sm" className="animate-pulse">
                                   <CreditCard className="h-4 w-4 mr-1" />
                                   Pay Now
                                 </Button>
-                                <Badge variant="destructive" className="text-xs self-center">
+                                <Badge
+                                  variant="destructive"
+                                  className="text-xs self-center"
+                                >
                                   Payment Due
                                 </Badge>
                               </>
@@ -665,13 +847,21 @@ export default function Client() {
               <Card>
                 <CardHeader>
                   <CardTitle>Technical Proposals & SOW</CardTitle>
-                  <CardDescription>Review project scopes, technical specifications, and contracts</CardDescription>
+                  <CardDescription>
+                    Review project scopes, technical specifications, and
+                    contracts
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="text-center py-8">
                     <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground">No technical proposals pending review</p>
-                    <p className="text-xs text-muted-foreground mt-2">Future feature enhancements and new project proposals will appear here</p>
+                    <p className="text-muted-foreground">
+                      No technical proposals pending review
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Future feature enhancements and new project proposals will
+                      appear here
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -682,7 +872,10 @@ export default function Client() {
               <Card>
                 <CardHeader>
                   <CardTitle>Schedule Technical Consultation</CardTitle>
-                  <CardDescription>Book technical reviews, sprint planning, or strategy sessions with Kris McNair</CardDescription>
+                  <CardDescription>
+                    Book technical reviews, sprint planning, or strategy
+                    sessions with Kris McNair
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -690,13 +883,18 @@ export default function Client() {
                       <Phone className="h-6 w-6" />
                       <span>Technical Review Call</span>
                     </Button>
-                    <Button className="h-24 flex-col space-y-2" variant="outline">
+                    <Button
+                      className="h-24 flex-col space-y-2"
+                      variant="outline"
+                    >
                       <Video className="h-6 w-6" />
                       <span>Screen Share Session</span>
                     </Button>
                   </div>
                   <div className="mt-6 p-4 bg-muted/50 rounded-lg">
-                    <h4 className="font-medium mb-2">Available Session Types:</h4>
+                    <h4 className="font-medium mb-2">
+                      Available Session Types:
+                    </h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• Code reviews and technical feedback</li>
                       <li>• Sprint planning and milestone discussions</li>
@@ -707,8 +905,6 @@ export default function Client() {
                 </CardContent>
               </Card>
             </TabsContent>
-
-
 
             {/* File Vault Tab */}
             <TabsContent value="files" className="space-y-6">
@@ -726,7 +922,7 @@ export default function Client() {
                   Upload Requirements
                 </Button>
               </div>
-              
+
               <div className="grid grid-cols-1 gap-4">
                 {mockFiles.map((file) => (
                   <Card key={file.id}>
@@ -739,14 +935,20 @@ export default function Client() {
                           <div>
                             <div className="flex items-center gap-2">
                               <h4 className="font-medium">{file.name}</h4>
-                              {file.uploadedDate === "2024-01-15" && file.uploadedBy === "freelancer" && (
-                                <Badge variant="destructive" className="text-xs animate-pulse">
-                                  New
-                                </Badge>
-                              )}
+                              {file.uploadedDate === "2024-01-15" &&
+                                file.uploadedBy === "freelancer" && (
+                                  <Badge
+                                    variant="destructive"
+                                    className="text-xs animate-pulse"
+                                  >
+                                    New
+                                  </Badge>
+                                )}
                             </div>
                             <p className="text-sm text-muted-foreground">
-                              {file.size} • Uploaded {formatDate(file.uploadedDate)} by {file.uploadedBy}
+                              {file.size} • Uploaded{" "}
+                              {formatDate(file.uploadedDate)} by{" "}
+                              {file.uploadedBy}
                             </p>
                             <Badge variant="outline" className="mt-1 text-xs">
                               {file.category}
@@ -773,18 +975,27 @@ export default function Client() {
               <Card>
                 <CardHeader>
                   <CardTitle>Activity Timeline</CardTitle>
-                  <CardDescription>Chronological history of all actions</CardDescription>
+                  <CardDescription>
+                    Chronological history of all actions
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {mockActivity.map((activity) => (
-                      <div key={activity.id} className="flex items-start space-x-3 pb-4 border-b border-border/30 last:border-b-0">
+                      <div
+                        key={activity.id}
+                        className="flex items-start space-x-3 pb-4 border-b border-border/30 last:border-b-0"
+                      >
                         <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center mt-0.5">
                           <Activity className="h-4 w-4 text-muted-foreground" />
                         </div>
                         <div className="flex-1">
-                          <p className="text-sm font-medium">{activity.description}</p>
-                          <p className="text-xs text-muted-foreground">{formatDateTime(activity.timestamp)}</p>
+                          <p className="text-sm font-medium">
+                            {activity.description}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {formatDateTime(activity.timestamp)}
+                          </p>
                         </div>
                       </div>
                     ))}

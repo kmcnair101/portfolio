@@ -1,15 +1,27 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Layout from "@/components/Layout";
-import { 
-  FileText, 
-  Search, 
-  Plus, 
+import {
+  FileText,
+  Search,
+  Plus,
   Users,
   FolderOpen,
   MessageSquare,
@@ -30,7 +42,7 @@ import {
   Phone,
   Globe,
   Key,
-  Activity
+  Activity,
 } from "lucide-react";
 
 // Mock data for clients
@@ -51,10 +63,10 @@ const mockClients = [
     documentsShared: 12,
     messagesUnread: 2,
     nextMilestone: "Design Review",
-    milestoneDate: "2024-01-20"
+    milestoneDate: "2024-01-20",
   },
   {
-    id: "CLIENT-002", 
+    id: "CLIENT-002",
     name: "Startup.io",
     contactPerson: "Michael Chen",
     email: "m.chen@startup.io",
@@ -69,13 +81,13 @@ const mockClients = [
     documentsShared: 8,
     messagesUnread: 0,
     nextMilestone: "MVP Launch",
-    milestoneDate: "2024-01-25"
+    milestoneDate: "2024-01-25",
   },
   {
     id: "CLIENT-003",
     name: "Design Studio",
     contactPerson: "Emily Davis",
-    email: "emily@designstudio.com", 
+    email: "emily@designstudio.com",
     phone: "+1 (555) 345-6789",
     company: "Design Studio",
     status: "inactive",
@@ -87,7 +99,7 @@ const mockClients = [
     documentsShared: 5,
     messagesUnread: 1,
     nextMilestone: "Project Complete",
-    milestoneDate: null
+    milestoneDate: null,
   },
   {
     id: "CLIENT-004",
@@ -105,7 +117,7 @@ const mockClients = [
     documentsShared: 3,
     messagesUnread: 3,
     nextMilestone: "Requirements Review",
-    milestoneDate: "2024-01-18"
+    milestoneDate: "2024-01-18",
   },
   {
     id: "CLIENT-005",
@@ -123,8 +135,8 @@ const mockClients = [
     documentsShared: 15,
     messagesUnread: 0,
     nextMilestone: "Maintenance Phase",
-    milestoneDate: null
-  }
+    milestoneDate: null,
+  },
 ];
 
 // Mock projects data
@@ -142,8 +154,8 @@ const mockProjects = [
       { name: "Discovery", status: "completed", date: "2024-01-05" },
       { name: "Design Review", status: "in-progress", date: "2024-01-20" },
       { name: "Development", status: "pending", date: "2024-02-01" },
-      { name: "Testing & Launch", status: "pending", date: "2024-02-15" }
-    ]
+      { name: "Testing & Launch", status: "pending", date: "2024-02-15" },
+    ],
   },
   {
     id: "PROJ-002",
@@ -158,9 +170,9 @@ const mockProjects = [
       { name: "Planning", status: "completed", date: "2023-12-20" },
       { name: "MVP Development", status: "in-progress", date: "2024-01-25" },
       { name: "Beta Testing", status: "pending", date: "2024-01-28" },
-      { name: "Launch", status: "pending", date: "2024-01-30" }
-    ]
-  }
+      { name: "Launch", status: "pending", date: "2024-01-30" },
+    ],
+  },
 ];
 
 // Mock documents
@@ -173,7 +185,7 @@ const mockDocuments = [
     size: "2.4 MB",
     uploadedDate: "2024-01-10",
     uploadedBy: "Admin",
-    downloads: 3
+    downloads: 3,
   },
   {
     id: "DOC-002",
@@ -183,7 +195,7 @@ const mockDocuments = [
     size: "15.7 MB",
     uploadedDate: "2024-01-12",
     uploadedBy: "Admin",
-    downloads: 1
+    downloads: 1,
   },
   {
     id: "DOC-003",
@@ -193,8 +205,8 @@ const mockDocuments = [
     size: "1.8 MB",
     uploadedDate: "2024-01-08",
     uploadedBy: "Client",
-    downloads: 5
-  }
+    downloads: 5,
+  },
 ];
 
 // Mock messages
@@ -206,7 +218,7 @@ const mockMessages = [
     subject: "Design Review Feedback",
     preview: "The new design looks great, but I have a few suggestions...",
     timestamp: "2024-01-15T14:30:00",
-    unread: true
+    unread: true,
   },
   {
     id: "MSG-002",
@@ -215,7 +227,7 @@ const mockMessages = [
     subject: "Project Timeline Questions",
     preview: "Can we discuss the timeline for the e-commerce features?",
     timestamp: "2024-01-14T09:15:00",
-    unread: true
+    unread: true,
   },
   {
     id: "MSG-003",
@@ -224,21 +236,21 @@ const mockMessages = [
     subject: "Final Invoice Payment",
     preview: "Payment has been processed. Thank you for the excellent work!",
     timestamp: "2024-01-12T11:45:00",
-    unread: false
-  }
+    unread: false,
+  },
 ];
 
 const statusColors = {
   active: "bg-green-100 text-green-700",
   inactive: "bg-gray-100 text-gray-700",
-  pending: "bg-yellow-100 text-yellow-700"
+  pending: "bg-yellow-100 text-yellow-700",
 };
 
 const projectStatusColors = {
   "in-progress": "bg-blue-100 text-blue-700",
   completed: "bg-green-100 text-green-700",
   pending: "bg-yellow-100 text-yellow-700",
-  "on-hold": "bg-orange-100 text-orange-700"
+  "on-hold": "bg-orange-100 text-orange-700",
 };
 
 export default function ClientPortal() {
@@ -248,45 +260,61 @@ export default function ClientPortal() {
 
   // Admin notification counts
   const adminNotifications = {
-    clients: mockClients.filter(c => c.status === 'pending' || c.messagesUnread > 0).length, // Pending clients or clients with unread messages
-    projects: mockProjects.filter(p => p.status === 'in-progress' && p.progress < 50).length, // Projects needing attention
-    documents: mockDocuments.filter(d => d.uploadedBy === 'Client' && d.uploadedDate === '2024-01-08').length, // New client uploads
-    messages: mockMessages.filter(m => m.unread).length // Unread messages from clients
+    clients: mockClients.filter(
+      (c) => c.status === "pending" || c.messagesUnread > 0,
+    ).length, // Pending clients or clients with unread messages
+    projects: mockProjects.filter(
+      (p) => p.status === "in-progress" && p.progress < 50,
+    ).length, // Projects needing attention
+    documents: mockDocuments.filter(
+      (d) => d.uploadedBy === "Client" && d.uploadedDate === "2024-01-08",
+    ).length, // New client uploads
+    messages: mockMessages.filter((m) => m.unread).length, // Unread messages from clients
   };
 
-  const filteredClients = mockClients.filter(client => {
-    const matchesSearch = client.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         client.contactPerson.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         client.email.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesStatus = statusFilter === "all" || client.status === statusFilter;
+  const filteredClients = mockClients.filter((client) => {
+    const matchesSearch =
+      client.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      client.contactPerson.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      client.email.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus =
+      statusFilter === "all" || client.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
 
   // Calculate metrics
   const totalClients = mockClients.length;
-  const activeClients = mockClients.filter(c => c.status === 'active').length;
-  const pendingClients = mockClients.filter(c => c.status === 'pending').length;
-  const totalProjects = mockClients.reduce((sum, c) => sum + c.totalProjects, 0);
-  const activeProjects = mockClients.reduce((sum, c) => sum + c.activeProjects, 0);
-  const unreadMessages = mockMessages.filter(m => m.unread).length;
+  const activeClients = mockClients.filter((c) => c.status === "active").length;
+  const pendingClients = mockClients.filter(
+    (c) => c.status === "pending",
+  ).length;
+  const totalProjects = mockClients.reduce(
+    (sum, c) => sum + c.totalProjects,
+    0,
+  );
+  const activeProjects = mockClients.reduce(
+    (sum, c) => sum + c.activeProjects,
+    0,
+  );
+  const unreadMessages = mockMessages.filter((m) => m.unread).length;
 
   const formatDate = (dateString) => {
-    if (!dateString) return 'Never';
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+    if (!dateString) return "Never";
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     });
   };
 
   const formatDateTime = (dateString) => {
-    if (!dateString) return 'Never';
-    return new Date(dateString).toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+    if (!dateString) return "Never";
+    return new Date(dateString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     });
   };
 
@@ -323,7 +351,9 @@ export default function ClientPortal() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Total Clients</p>
+                    <p className="text-sm text-muted-foreground">
+                      Total Clients
+                    </p>
                     <p className="text-2xl font-light">{totalClients}</p>
                     <p className="text-xs text-muted-foreground mt-1">
                       {activeClients} active • {pendingClients} pending
@@ -333,7 +363,10 @@ export default function ClientPortal() {
                 </div>
                 {pendingClients > 0 && (
                   <div className="absolute top-2 right-2">
-                    <Badge variant="destructive" className="text-xs animate-pulse">
+                    <Badge
+                      variant="destructive"
+                      className="text-xs animate-pulse"
+                    >
                       {pendingClients} pending
                     </Badge>
                   </div>
@@ -344,7 +377,9 @@ export default function ClientPortal() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Active Projects</p>
+                    <p className="text-sm text-muted-foreground">
+                      Active Projects
+                    </p>
                     <p className="text-2xl font-light">{activeProjects}</p>
                     <p className="text-xs text-muted-foreground mt-1">
                       {totalProjects} total projects
@@ -358,7 +393,9 @@ export default function ClientPortal() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Unread Messages</p>
+                    <p className="text-sm text-muted-foreground">
+                      Unread Messages
+                    </p>
                     <p className="text-2xl font-light">{unreadMessages}</p>
                     <p className="text-xs text-muted-foreground mt-1">
                       Requires attention
@@ -379,8 +416,12 @@ export default function ClientPortal() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Documents Shared</p>
-                    <p className="text-2xl font-light">{mockDocuments.length}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Documents Shared
+                    </p>
+                    <p className="text-2xl font-light">
+                      {mockDocuments.length}
+                    </p>
                     <p className="text-xs text-muted-foreground mt-1">
                       This month
                     </p>
@@ -456,7 +497,10 @@ export default function ClientPortal() {
               {/* Clients List */}
               <div className="grid grid-cols-1 gap-4">
                 {filteredClients.map((client) => (
-                  <Card key={client.id} className="hover:shadow-md transition-shadow">
+                  <Card
+                    key={client.id}
+                    className="hover:shadow-md transition-shadow"
+                  >
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div className="flex items-start space-x-4">
@@ -465,17 +509,28 @@ export default function ClientPortal() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-1">
-                              <h3 className="font-medium text-lg">{client.name}</h3>
-                              <Badge className={statusColors[client.status]} variant="secondary">
-                                {client.status.charAt(0).toUpperCase() + client.status.slice(1)}
+                              <h3 className="font-medium text-lg">
+                                {client.name}
+                              </h3>
+                              <Badge
+                                className={statusColors[client.status]}
+                                variant="secondary"
+                              >
+                                {client.status.charAt(0).toUpperCase() +
+                                  client.status.slice(1)}
                               </Badge>
-                              {client.status === 'pending' && (
-                                <Badge variant="destructive" className="text-xs animate-pulse">
+                              {client.status === "pending" && (
+                                <Badge
+                                  variant="destructive"
+                                  className="text-xs animate-pulse"
+                                >
                                   Setup Required
                                 </Badge>
                               )}
                             </div>
-                            <p className="text-sm text-muted-foreground mb-2">{client.contactPerson}</p>
+                            <p className="text-sm text-muted-foreground mb-2">
+                              {client.contactPerson}
+                            </p>
                             <div className="flex items-center gap-6 text-sm text-muted-foreground mb-2">
                               <div className="flex items-center gap-1">
                                 <Mail className="h-3 w-3" />
@@ -493,9 +548,14 @@ export default function ClientPortal() {
                             <div className="flex items-center gap-6 text-sm text-muted-foreground">
                               <div>{client.activeProjects} active projects</div>
                               <div>{client.documentsShared} documents</div>
-                              <div>Last login: {formatDateTime(client.lastLogin)}</div>
+                              <div>
+                                Last login: {formatDateTime(client.lastLogin)}
+                              </div>
                               {client.messagesUnread > 0 && (
-                                <Badge variant="destructive" className="text-xs">
+                                <Badge
+                                  variant="destructive"
+                                  className="text-xs"
+                                >
                                   {client.messagesUnread} unread messages
                                 </Badge>
                               )}
@@ -526,9 +586,14 @@ export default function ClientPortal() {
             <TabsContent value="projects" className="space-y-6">
               <div className="grid grid-cols-1 gap-4">
                 {mockProjects.map((project) => {
-                  const client = mockClients.find(c => c.id === project.clientId);
+                  const client = mockClients.find(
+                    (c) => c.id === project.clientId,
+                  );
                   return (
-                    <Card key={project.id} className="hover:shadow-md transition-shadow">
+                    <Card
+                      key={project.id}
+                      className="hover:shadow-md transition-shadow"
+                    >
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between">
                           <div className="flex items-start space-x-4">
@@ -537,26 +602,47 @@ export default function ClientPortal() {
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center gap-3 mb-1">
-                                <h3 className="font-medium text-lg">{project.name}</h3>
-                                <Badge className={projectStatusColors[project.status]} variant="secondary">
-                                  {project.status.replace('-', ' ').charAt(0).toUpperCase() + project.status.replace('-', ' ').slice(1)}
+                                <h3 className="font-medium text-lg">
+                                  {project.name}
+                                </h3>
+                                <Badge
+                                  className={
+                                    projectStatusColors[project.status]
+                                  }
+                                  variant="secondary"
+                                >
+                                  {project.status
+                                    .replace("-", " ")
+                                    .charAt(0)
+                                    .toUpperCase() +
+                                    project.status.replace("-", " ").slice(1)}
                                 </Badge>
-                                {project.status === 'in-progress' && project.progress < 50 && (
-                                  <Badge variant="destructive" className="text-xs">
-                                    Needs Attention
-                                  </Badge>
-                                )}
+                                {project.status === "in-progress" &&
+                                  project.progress < 50 && (
+                                    <Badge
+                                      variant="destructive"
+                                      className="text-xs"
+                                    >
+                                      Needs Attention
+                                    </Badge>
+                                  )}
                               </div>
-                              <p className="text-sm text-muted-foreground mb-2">Client: {client?.name}</p>
+                              <p className="text-sm text-muted-foreground mb-2">
+                                Client: {client?.name}
+                              </p>
                               <div className="flex items-center gap-6 text-sm text-muted-foreground mb-3">
                                 <div>Progress: {project.progress}%</div>
-                                <div>Start: {formatDate(project.startDate)}</div>
+                                <div>
+                                  Start: {formatDate(project.startDate)}
+                                </div>
                                 <div>Due: {formatDate(project.dueDate)}</div>
-                                <div>Value: ${project.value.toLocaleString()}</div>
+                                <div>
+                                  Value: ${project.value.toLocaleString()}
+                                </div>
                               </div>
                               <div className="w-full bg-muted rounded-full h-2">
-                                <div 
-                                  className="bg-primary h-2 rounded-full transition-all duration-300" 
+                                <div
+                                  className="bg-primary h-2 rounded-full transition-all duration-300"
                                   style={{ width: `${project.progress}%` }}
                                 ></div>
                               </div>
@@ -589,12 +675,17 @@ export default function ClientPortal() {
                   Upload Document
                 </Button>
               </div>
-              
+
               <div className="grid grid-cols-1 gap-4">
                 {mockDocuments.map((document) => {
-                  const client = mockClients.find(c => c.id === document.clientId);
+                  const client = mockClients.find(
+                    (c) => c.id === document.clientId,
+                  );
                   return (
-                    <Card key={document.id} className="hover:shadow-md transition-shadow">
+                    <Card
+                      key={document.id}
+                      className="hover:shadow-md transition-shadow"
+                    >
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-4">
@@ -604,17 +695,23 @@ export default function ClientPortal() {
                             <div>
                               <div className="flex items-center gap-2">
                                 <h4 className="font-medium">{document.name}</h4>
-                                {document.uploadedBy === 'Client' && document.uploadedDate === '2024-01-08' && (
-                                  <Badge variant="secondary" className="text-xs animate-pulse">
-                                    New Upload
-                                  </Badge>
-                                )}
+                                {document.uploadedBy === "Client" &&
+                                  document.uploadedDate === "2024-01-08" && (
+                                    <Badge
+                                      variant="secondary"
+                                      className="text-xs animate-pulse"
+                                    >
+                                      New Upload
+                                    </Badge>
+                                  )}
                               </div>
                               <p className="text-sm text-muted-foreground">
-                                {client?.name} • {document.size} • Uploaded {formatDate(document.uploadedDate)}
+                                {client?.name} • {document.size} • Uploaded{" "}
+                                {formatDate(document.uploadedDate)}
                               </p>
                               <p className="text-xs text-muted-foreground">
-                                By {document.uploadedBy} • {document.downloads} downloads
+                                By {document.uploadedBy} • {document.downloads}{" "}
+                                downloads
                               </p>
                             </div>
                           </div>
@@ -640,9 +737,14 @@ export default function ClientPortal() {
             <TabsContent value="messages" className="space-y-6">
               <div className="grid grid-cols-1 gap-4">
                 {mockMessages.map((message) => {
-                  const client = mockClients.find(c => c.id === message.clientId);
+                  const client = mockClients.find(
+                    (c) => c.id === message.clientId,
+                  );
                   return (
-                    <Card key={message.id} className="hover:shadow-md transition-shadow">
+                    <Card
+                      key={message.id}
+                      className="hover:shadow-md transition-shadow"
+                    >
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between">
                           <div className="flex items-start space-x-4">
@@ -651,9 +753,14 @@ export default function ClientPortal() {
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center gap-3 mb-1">
-                                <h4 className="font-medium">{message.subject}</h4>
+                                <h4 className="font-medium">
+                                  {message.subject}
+                                </h4>
                                 {message.unread && (
-                                  <Badge variant="destructive" className="text-xs animate-pulse">
+                                  <Badge
+                                    variant="destructive"
+                                    className="text-xs animate-pulse"
+                                  >
                                     Unread
                                   </Badge>
                                 )}

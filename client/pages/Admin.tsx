@@ -1,20 +1,26 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { 
-  ArrowRight, 
-  BarChart3, 
-  Users, 
-  CreditCard, 
-  Mail, 
+import {
+  ArrowRight,
+  BarChart3,
+  Users,
+  CreditCard,
+  Mail,
   FileText,
   Settings,
   TrendingUp,
   DollarSign,
   MessageSquare,
-  Calendar
+  Calendar,
 } from "lucide-react";
 
 const adminTools = [
@@ -25,7 +31,7 @@ const adminTools = [
     href: "/admin/crm",
     color: "bg-blue-500/10 text-blue-600",
     stats: "127 contacts",
-    growth: "+12%"
+    growth: "+12%",
   },
   {
     icon: CreditCard,
@@ -34,7 +40,7 @@ const adminTools = [
     href: "/admin/payments",
     color: "bg-green-500/10 text-green-600",
     stats: "$24,580 MTD",
-    growth: "+8%"
+    growth: "+8%",
   },
   {
     icon: Mail,
@@ -43,7 +49,7 @@ const adminTools = [
     href: "/admin/marketing",
     color: "bg-purple-500/10 text-purple-600",
     stats: "89.2% open rate",
-    growth: "+5%"
+    growth: "+5%",
   },
   {
     icon: BarChart3,
@@ -52,7 +58,7 @@ const adminTools = [
     href: "/admin/analytics",
     color: "bg-orange-500/10 text-orange-600",
     stats: "15.3K visitors",
-    growth: "+18%"
+    growth: "+18%",
   },
   {
     icon: FileText,
@@ -61,8 +67,8 @@ const adminTools = [
     href: "/admin/portal",
     color: "bg-pink-500/10 text-pink-600",
     stats: "23 active clients",
-    growth: "+3%"
-  }
+    growth: "+3%",
+  },
 ];
 
 const quickStats = [
@@ -71,29 +77,29 @@ const quickStats = [
     value: "$24,580",
     change: "+12%",
     icon: DollarSign,
-    color: "text-green-600"
+    color: "text-green-600",
   },
   {
     title: "New Leads",
     value: "34",
     change: "+8%",
     icon: TrendingUp,
-    color: "text-blue-600"
+    color: "text-blue-600",
   },
   {
     title: "Active Projects",
     value: "12",
     change: "+2%",
     icon: FileText,
-    color: "text-orange-600"
+    color: "text-orange-600",
   },
   {
     title: "Client Messages",
     value: "7",
     change: "New",
     icon: MessageSquare,
-    color: "text-purple-600"
-  }
+    color: "text-purple-600",
+  },
 ];
 
 const recentActivity = [
@@ -101,26 +107,26 @@ const recentActivity = [
     action: "New client signed contract",
     client: "Acme Corp",
     time: "2 hours ago",
-    type: "contract"
+    type: "contract",
   },
   {
     action: "Payment received",
     client: "Tech Startup Inc",
     time: "4 hours ago",
-    type: "payment"
+    type: "payment",
   },
   {
     action: "Email campaign sent",
     client: "Newsletter subscribers",
     time: "1 day ago",
-    type: "marketing"
+    type: "marketing",
   },
   {
     action: "Project milestone completed",
     client: "Design Agency",
     time: "2 days ago",
-    type: "project"
-  }
+    type: "project",
+  },
 ];
 
 export default function Admin() {
@@ -128,7 +134,7 @@ export default function Admin() {
 
   const handleLogout = () => {
     logout();
-    window.location.href = '/';
+    window.location.href = "/";
   };
 
   return (
@@ -138,15 +144,14 @@ export default function Admin() {
           {/* Header */}
           <div className="flex items-center justify-between mb-12 pb-8 border-b border-border/50">
             <div>
-              <h1 className="text-3xl font-light tracking-tight">
-                Admin
-              </h1>
-              <p className="text-muted-foreground mt-2">
-                Business operations
-              </p>
+              <h1 className="text-3xl font-light tracking-tight">Admin</h1>
+              <p className="text-muted-foreground mt-2">Business operations</p>
             </div>
             <div className="flex gap-2">
-              <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                to="/"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
                 ← Portfolio
               </Link>
               <button
@@ -163,8 +168,12 @@ export default function Admin() {
             {quickStats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-2xl font-light mb-1">{stat.value}</div>
-                <div className="text-xs text-muted-foreground mb-1">{stat.title}</div>
-                <div className="text-xs text-muted-foreground">{stat.change}</div>
+                <div className="text-xs text-muted-foreground mb-1">
+                  {stat.title}
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {stat.change}
+                </div>
               </div>
             ))}
           </div>
@@ -175,11 +184,16 @@ export default function Admin() {
               <h2 className="text-2xl font-light mb-8">Tools</h2>
               <div className="space-y-6">
                 {adminTools.map((tool) => (
-                  <div key={tool.title} className="border-b border-border/50 pb-6 last:border-b-0">
+                  <div
+                    key={tool.title}
+                    className="border-b border-border/50 pb-6 last:border-b-0"
+                  >
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="font-medium mb-1">{tool.title}</h3>
-                        <p className="text-sm text-muted-foreground">{tool.description}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {tool.description}
+                        </p>
                       </div>
                       <div className="text-right">
                         <div className="text-sm mb-1">{tool.stats}</div>
@@ -201,10 +215,17 @@ export default function Admin() {
               <h2 className="text-2xl font-light mb-8">Activity</h2>
               <div className="space-y-4">
                 {recentActivity.map((activity, index) => (
-                  <div key={index} className="border-b border-border/30 pb-4 last:border-b-0">
+                  <div
+                    key={index}
+                    className="border-b border-border/30 pb-4 last:border-b-0"
+                  >
                     <div className="text-sm mb-1">{activity.action}</div>
-                    <div className="text-xs text-muted-foreground">{activity.client}</div>
-                    <div className="text-xs text-muted-foreground">{activity.time}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {activity.client}
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {activity.time}
+                    </div>
                   </div>
                 ))}
               </div>
