@@ -495,17 +495,20 @@ export default function Client() {
                                   </div>
                                 </div>
                                 {milestone.needsApproval && (
-                                  <div className="flex gap-2">
-                                    <Button size="sm" onClick={() => handleApproveDecline(milestone.id, 'approve')}>
-                                      <Check className="h-4 w-4 mr-1" />
-                                      Approve
-                                    </Button>
-                                    <Button size="sm" variant="outline" onClick={() => handleApproveDecline(milestone.id, 'decline')}>
-                                      <X className="h-4 w-4 mr-1" />
-                                      Decline
-                                    </Button>
-                                  </div>
-                                )}
+                                <div className="flex gap-2 items-center">
+                                  <Badge variant="destructive" className="text-xs animate-pulse">
+                                    Action Required
+                                  </Badge>
+                                  <Button size="sm" onClick={() => handleApproveDecline(milestone.id, 'approve')}>
+                                    <Check className="h-4 w-4 mr-1" />
+                                    Approve
+                                  </Button>
+                                  <Button size="sm" variant="outline" onClick={() => handleApproveDecline(milestone.id, 'decline')}>
+                                    <X className="h-4 w-4 mr-1" />
+                                    Decline
+                                  </Button>
+                                </div>
+                              )}
                               </div>
                             ))}
                           </div>
