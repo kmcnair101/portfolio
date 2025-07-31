@@ -204,6 +204,16 @@ export default function Client() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const { client, logout } = useClientAuth();
 
+  // Notification counts
+  const notifications = {
+    projects: 1, // 1 milestone needs approval
+    messages: 2, // 2 unread messages
+    invoices: 1, // 1 pending invoice
+    proposals: 0, // No pending proposals
+    files: 1, // 1 new file uploaded
+    activity: 0 // No new activity
+  };
+
   const handleLogout = () => {
     logout();
     window.location.href = '/';
