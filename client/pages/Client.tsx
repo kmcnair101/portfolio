@@ -188,7 +188,7 @@ const mockActivity = [
   {
     id: 1,
     type: "milestone",
-    description: "Design Mockups milestone ready for review",
+    description: "Frontend Components & Authentication milestone ready for review",
     timestamp: "2024-01-15T14:30:00"
   },
   {
@@ -199,15 +199,27 @@ const mockActivity = [
   },
   {
     id: 3,
-    type: "message",
-    description: "New message from Kris McNair",
-    timestamp: "2024-01-10T16:20:00"
+    type: "deployment",
+    description: "API deployed to staging environment",
+    timestamp: "2024-01-14T09:30:00"
   },
   {
     id: 4,
     type: "file",
-    description: "New file uploaded: Design_Mockups_v1.zip",
+    description: "New file uploaded: Frontend_Components_v2.zip",
     timestamp: "2024-01-15T14:25:00"
+  },
+  {
+    id: 5,
+    type: "code_review",
+    description: "Code review completed for authentication system",
+    timestamp: "2024-01-13T11:45:00"
+  },
+  {
+    id: 6,
+    type: "testing",
+    description: "Unit tests added for API endpoints",
+    timestamp: "2024-01-12T16:20:00"
   }
 ];
 
