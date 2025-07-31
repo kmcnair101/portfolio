@@ -541,6 +541,11 @@ export default function ClientPortal() {
                                 <Badge className={projectStatusColors[project.status]} variant="secondary">
                                   {project.status.replace('-', ' ').charAt(0).toUpperCase() + project.status.replace('-', ' ').slice(1)}
                                 </Badge>
+                                {project.status === 'in-progress' && project.progress < 50 && (
+                                  <Badge variant="destructive" className="text-xs">
+                                    Needs Attention
+                                  </Badge>
+                                )}
                               </div>
                               <p className="text-sm text-muted-foreground mb-2">Client: {client?.name}</p>
                               <div className="flex items-center gap-6 text-sm text-muted-foreground mb-3">
