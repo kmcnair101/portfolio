@@ -507,7 +507,7 @@ export default function Client() {
 
               {/* Recent Activity & Current Projects */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card>
+                <Card className="lg:order-1 order-2">
                   <CardHeader>
                     <CardTitle>Current Project Status</CardTitle>
                     <CardDescription>
@@ -542,7 +542,7 @@ export default function Client() {
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="lg:order-2 order-1">
                   <CardHeader>
                     <CardTitle>Recent Activity</CardTitle>
                     <CardDescription>
