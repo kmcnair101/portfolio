@@ -524,7 +524,14 @@ export default function Client() {
             <TabsContent value="messages" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Messages with Kris McNair</CardTitle>
+                  <CardTitle className="flex items-center gap-2">
+                    Messages with Kris McNair
+                    {notifications.messages > 0 && (
+                      <Badge variant="destructive" className="text-xs">
+                        {notifications.messages} new
+                      </Badge>
+                    )}
+                  </CardTitle>
                   <CardDescription>Secure communication channel</CardDescription>
                 </CardHeader>
                 <CardContent>
