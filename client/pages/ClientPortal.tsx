@@ -319,7 +319,7 @@ export default function ClientPortal() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <Card>
+            <Card className="relative">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -331,6 +331,13 @@ export default function ClientPortal() {
                   </div>
                   <Users className="h-8 w-8 text-blue-600" />
                 </div>
+                {pendingClients > 0 && (
+                  <div className="absolute top-2 right-2">
+                    <Badge variant="destructive" className="text-xs animate-pulse">
+                      {pendingClients} pending
+                    </Badge>
+                  </div>
+                )}
               </CardContent>
             </Card>
             <Card>
