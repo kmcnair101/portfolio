@@ -369,8 +369,8 @@ export default function Client() {
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
               <Button variant="outline" size="sm" className="relative">
-                <Bell className="h-4 w-4 mr-2" />
-                Notifications
+                <Bell className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">Notifications</span>
                 {notifications.projects +
                   notifications.messages +
                   notifications.invoices +
@@ -387,8 +387,8 @@ export default function Client() {
                 )}
               </Button>
               <Button variant="outline" size="sm">
-                <Settings className="h-4 w-4 mr-2" />
-                Settings
+                <Settings className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">Settings</span>
               </Button>
               <Button variant="outline" size="sm" onClick={handleLogout}>
                 Logout
