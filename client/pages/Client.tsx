@@ -542,7 +542,7 @@ export default function Client() {
                   </CardContent>
                 </Card>
 
-                <Card className="lg:order-2 order-1">
+                <Card className="lg:order-2 order-first">
                   <CardHeader>
                     <CardTitle>Recent Activity</CardTitle>
                     <CardDescription>
