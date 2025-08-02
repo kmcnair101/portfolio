@@ -189,17 +189,18 @@ export default function CRM() {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="flex items-center justify-between mb-8 pb-6 border-b border-border/50">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-6 border-b border-border/50 gap-4">
             <div>
-              <h1 className="text-3xl font-light tracking-tight flex items-center">
-                <Users className="h-8 w-8 mr-3 text-muted-foreground" />
-                Customer Relationship Management
+              <h1 className="text-2xl sm:text-3xl font-light tracking-tight flex items-center">
+                <Users className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3 text-muted-foreground" />
+                <span className="hidden sm:inline">Customer Relationship Management</span>
+                <span className="sm:hidden">CRM</span>
               </h1>
-              <p className="text-muted-foreground mt-2">
+              <p className="text-muted-foreground mt-2 text-sm sm:text-base">
                 Manage contacts, leads, and track your sales pipeline
               </p>
             </div>
-            <Button className="flex items-center">
+            <Button className="flex items-center flex-shrink-0">
               <Plus className="h-4 w-4 mr-2" />
               Add Contact
             </Button>
