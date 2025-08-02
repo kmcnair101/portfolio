@@ -312,15 +312,15 @@ export default function CRM() {
                     key={contact.id}
                     className="hover:shadow-md transition-shadow"
                   >
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-start space-x-4">
-                          <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                        <div className="flex items-start space-x-4 flex-1">
+                          <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center flex-shrink-0">
                             <Users className="h-6 w-6 text-muted-foreground" />
                           </div>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-1">
-                              <h3 className="font-medium text-lg">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
+                              <h3 className="font-medium text-lg truncate">
                                 {contact.name}
                               </h3>
                               <Badge
@@ -333,10 +333,10 @@ export default function CRM() {
                             <p className="text-sm text-muted-foreground mb-2">
                               {contact.position} at {contact.company}
                             </p>
-                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
                               <div className="flex items-center gap-1">
                                 <Mail className="h-3 w-3" />
-                                {contact.email}
+                                <span className="truncate">{contact.email}</span>
                               </div>
                               <div className="flex items-center gap-1">
                                 <Phone className="h-3 w-3" />
@@ -347,7 +347,7 @@ export default function CRM() {
                                 {contact.value.toLocaleString()}
                               </div>
                             </div>
-                            <div className="flex gap-2 mt-3">
+                            <div className="flex flex-wrap gap-2 mt-3">
                               {contact.tags.map((tag) => (
                                 <Badge
                                   key={tag}
@@ -360,7 +360,7 @@ export default function CRM() {
                             </div>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 flex-shrink-0">
                           <Button variant="ghost" size="sm">
                             <Eye className="h-4 w-4" />
                           </Button>
