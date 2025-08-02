@@ -211,8 +211,8 @@ export default function Admin() {
             </div>
 
             {/* Recent Activity */}
-            <div>
-              <h2 className="text-2xl font-light mb-8">Activity</h2>
+            <div className="mt-8 lg:mt-0">
+              <h2 className="text-xl sm:text-2xl font-light mb-6 sm:mb-8">Activity</h2>
               <div className="space-y-4">
                 {recentActivity.map((activity, index) => (
                   <div
