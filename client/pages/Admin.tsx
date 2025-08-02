@@ -142,9 +142,9 @@ export default function Admin() {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="flex items-center justify-between mb-12 pb-8 border-b border-border/50">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-12 pb-6 sm:pb-8 border-b border-border/50 gap-4">
             <div>
-              <h1 className="text-3xl font-light tracking-tight">Admin</h1>
+              <h1 className="text-2xl sm:text-3xl font-light tracking-tight">Admin</h1>
               <p className="text-muted-foreground mt-2">Business operations</p>
             </div>
             <div className="flex gap-2">
