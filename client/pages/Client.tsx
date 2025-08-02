@@ -449,7 +449,7 @@ export default function Client() {
             </TabsList>
 
             {/* Dashboard Tab */}
-            <TabsContent value="dashboard" className="mt-8 space-y-6">
+            <TabsContent value="dashboard" className="mt-16 space-y-6">
               {/* Quick Stats */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <Card>
