@@ -178,25 +178,25 @@ export default function Admin() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Business Tools */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-light mb-8">Tools</h2>
-              <div className="space-y-6">
+              <h2 className="text-xl sm:text-2xl font-light mb-6 sm:mb-8">Tools</h2>
+              <div className="space-y-4 sm:space-y-6">
                 {adminTools.map((tool) => (
                   <div
                     key={tool.title}
-                    className="border-b border-border/50 pb-6 last:border-b-0"
+                    className="border-b border-border/50 pb-4 sm:pb-6 last:border-b-0"
                   >
-                    <div className="flex items-center justify-between">
-                      <div>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div className="flex-1">
                         <h3 className="font-medium mb-1">{tool.title}</h3>
                         <p className="text-sm text-muted-foreground">
                           {tool.description}
                         </p>
                       </div>
-                      <div className="text-right">
-                        <div className="text-sm mb-1">{tool.stats}</div>
+                      <div className="flex items-center justify-between sm:flex-col sm:text-right">
+                        <div className="text-sm mb-0 sm:mb-1">{tool.stats}</div>
                         <Link
                           to={tool.href}
                           className="text-xs text-muted-foreground hover:text-foreground transition-colors"
