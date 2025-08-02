@@ -164,7 +164,7 @@ export default function Admin() {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-8 sm:mb-16">
             {quickStats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-2xl font-light mb-1">{stat.value}</div>
