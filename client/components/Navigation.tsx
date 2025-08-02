@@ -1,14 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {
-  BarChart3,
-  Home,
-  FileText,
-  Menu,
-  X,
-  Settings
-} from "lucide-react";
+import { BarChart3, Home, FileText, Menu, X, Settings } from "lucide-react";
 import { useState } from "react";
 
 const navigationItems = [
@@ -26,7 +19,11 @@ export default function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-xl font-light tracking-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <Link
+            to="/"
+            className="text-xl font-light tracking-tight"
+            style={{ fontFamily: "Playfair Display, serif" }}
+          >
             Kris McNair
           </Link>
 
@@ -42,9 +39,9 @@ export default function Navigation() {
                     "text-sm transition-colors border-b border-transparent",
                     isActive
                       ? "text-foreground border-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-muted-foreground hover:text-foreground",
                   )}
-                  style={{ fontFamily: 'Playfair Display, serif' }}
+                  style={{ fontFamily: "Playfair Display, serif" }}
                 >
                   {item.name}
                 </Link>
@@ -81,7 +78,7 @@ export default function Navigation() {
                       "block text-sm transition-colors",
                       isActive
                         ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
+                        : "text-muted-foreground hover:text-foreground",
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >

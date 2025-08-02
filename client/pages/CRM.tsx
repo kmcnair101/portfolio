@@ -193,7 +193,9 @@ export default function CRM() {
             <div>
               <h1 className="text-2xl sm:text-3xl font-light tracking-tight flex items-center">
                 <Users className="h-6 w-6 sm:h-8 sm:w-8 mr-2 sm:mr-3 text-muted-foreground" />
-                <span className="hidden sm:inline">Customer Relationship Management</span>
+                <span className="hidden sm:inline">
+                  Customer Relationship Management
+                </span>
                 <span className="sm:hidden">CRM</span>
               </h1>
               <p className="text-muted-foreground mt-2 text-sm sm:text-base">
@@ -337,7 +339,9 @@ export default function CRM() {
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
                               <div className="flex items-center gap-1">
                                 <Mail className="h-3 w-3" />
-                                <span className="truncate">{contact.email}</span>
+                                <span className="truncate">
+                                  {contact.email}
+                                </span>
                               </div>
                               <div className="flex items-center gap-1">
                                 <Phone className="h-3 w-3" />

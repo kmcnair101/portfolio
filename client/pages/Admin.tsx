@@ -144,7 +144,9 @@ export default function Admin() {
           {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 sm:mb-12 pb-6 sm:pb-8 border-b border-border/50 gap-4">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-light tracking-tight">Admin</h1>
+              <h1 className="text-2xl sm:text-3xl font-light tracking-tight">
+                Admin
+              </h1>
               <p className="text-muted-foreground mt-2">Business operations</p>
             </div>
             <div className="flex gap-2">
@@ -181,7 +183,9 @@ export default function Admin() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Business Tools */}
             <div className="lg:col-span-2">
-              <h2 className="text-xl sm:text-2xl font-light mb-6 sm:mb-8">Tools</h2>
+              <h2 className="text-xl sm:text-2xl font-light mb-6 sm:mb-8">
+                Tools
+              </h2>
               <div className="space-y-4 sm:space-y-6">
                 {adminTools.map((tool) => (
                   <div
@@ -212,7 +216,9 @@ export default function Admin() {
 
             {/* Recent Activity */}
             <div className="mt-8 lg:mt-0">
-              <h2 className="text-xl sm:text-2xl font-light mb-6 sm:mb-8">Activity</h2>
+              <h2 className="text-xl sm:text-2xl font-light mb-6 sm:mb-8">
+                Activity
+              </h2>
               <div className="space-y-4">
                 {recentActivity.map((activity, index) => (
                   <div
