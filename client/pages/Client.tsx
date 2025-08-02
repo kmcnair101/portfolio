@@ -391,7 +391,8 @@ export default function Client() {
                 <span className="hidden sm:inline">Settings</span>
               </Button>
               <Button variant="outline" size="sm" onClick={handleLogout}>
-                Logout
+                <span className="sm:hidden">Exit</span>
+                <span className="hidden sm:inline">Logout</span>
               </Button>
             </div>
           </div>
