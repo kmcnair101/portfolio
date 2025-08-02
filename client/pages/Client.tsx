@@ -400,7 +400,7 @@ export default function Client() {
           <Tabs
             value={activeTab}
             onValueChange={setActiveTab}
-            className="space-y-8"
+            className="space-y-12"
           >
             <TabsList className="grid w-full grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-1">
               <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
