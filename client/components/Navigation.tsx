@@ -7,7 +7,7 @@ import { useState } from "react";
 const navigationItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "About", href: "/about", icon: FileText },
-  { name: "Client", href: "/client", icon: FileText },
+  // { name: "Client", href: "/client", icon: FileText }, // Hidden until ready
 ];
 
 export default function Navigation() {
