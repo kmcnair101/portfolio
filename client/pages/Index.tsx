@@ -13,14 +13,14 @@ const portfolioProjects = [
     title: "CRE Map Builder",
     description: "Commercial Real Estate Map Building Application",
     tech: ["React", "Supabase", "Stripe"],
-    link: "#",
+    link: "https://app.creretailmaps.com/",
     image: "https://cdn.builder.io/api/v1/image/assets%2F10294e35110d4a3bb5c955b2f789c3ad%2Fec02adf9d43e45e69e0c47f5e8debe20"
   },
   {
     title: "Onna Run",
     description: "Social Running Platform with AI generated training plans and coaching",
     tech: ["React", "Supabase", "Artificial Intelligence"],
-    link: "#",
+    link: "https://onnarun.com",
     image: "https://cdn.builder.io/api/v1/image/assets%2F10294e35110d4a3bb5c955b2f789c3ad%2F75dc9f0a3fbc465e9483fc4f3281fa41"
   },
   {
