@@ -204,7 +204,7 @@ export default function Index() {
               </a>
             </Button>
             <Button variant="ghost" size="sm" asChild>
-              <a href="#" className="flex items-center">
+              <a href="https://x.com/" className="flex items-center" target="_blank" rel="noopener noreferrer">
                 <Twitter className="h-4 w-4 mr-2" />
                 Twitter
               </a>
