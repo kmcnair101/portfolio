@@ -9,7 +9,7 @@ export default function About() {
             {/* Image */}
             <div>
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F10294e35110d4a3bb5c955b2f789c3ad%2Ff37eff6fa6684969a4edd23b8adbf213"
+                src="/placeholder.svg"
                 alt="Kris McNair"
                 className="w-full aspect-[4/5] object-cover"
               />
