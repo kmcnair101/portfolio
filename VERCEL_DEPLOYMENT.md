@@ -7,12 +7,14 @@ This application has been optimized for deployment on Vercel.
 ### 1. Automatic Deployment (Recommended)
 
 1. **Connect your repository to Vercel:**
+
    - Go to [vercel.com](https://vercel.com)
    - Sign in with GitHub/GitLab/Bitbucket
    - Click "New Project"
    - Import your repository
 
 2. **Configure deployment settings:**
+
    - Build Command: `npm run build:client`
    - Output Directory: `dist/spa`
    - Install Command: `npm install`
@@ -63,11 +65,13 @@ If you need environment variables in production:
 ## Domain Configuration
 
 After deployment:
+
 1. Go to your Vercel project dashboard
 2. Navigate to Settings > Domains
 3. Add your custom domain
 4. Follow the DNS configuration instructions
 
 Your application will be available at:
+
 - `https://your-project-name.vercel.app`
 - Your custom domain (once configured)

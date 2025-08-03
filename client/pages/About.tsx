@@ -17,24 +17,38 @@ export default function About() {
 
             {/* Content */}
             <div>
-              <h1 className="text-4xl font-light mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h1
+                className="text-4xl font-light mb-8"
+                style={{ fontFamily: "Playfair Display, serif" }}
+              >
                 Software Engineer based in Miami, Florida&nbsp;
               </h1>
-              <div className="space-y-6 text-muted-foreground leading-relaxed" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <div
+                className="space-y-6 text-muted-foreground leading-relaxed"
+                style={{ fontFamily: "Playfair Display, serif" }}
+              >
                 <p>
-                  I'm a Full Stack Software Engineer based in Miami, Florida, with a strong focus on building high-quality web and mobile applications.
+                  I'm a Full Stack Software Engineer based in Miami, Florida,
+                  with a strong focus on building high-quality web and mobile
+                  applications.
                   <br />
                   <br />
-                  &nbsp;I specialize in developing end-to-end solutions—from planning and designing intuitive user interfaces to implementing robust backend systems. Whether it's creating a product from scratch or improving an existing one, I bring a problem-solving mindset and a user-centered approach to every project.{" "}
+                  &nbsp;I specialize in developing end-to-end solutions—from
+                  planning and designing intuitive user interfaces to
+                  implementing robust backend systems. Whether it's creating a
+                  product from scratch or improving an existing one, I bring a
+                  problem-solving mindset and a user-centered approach to every
+                  project. <br />
                   <br />
-                  <br />
-                  My goal is to build applications that are not only functional and scalable but also engaging and easy to use.&nbsp;
+                  My goal is to build applications that are not only functional
+                  and scalable but also engaging and easy to use.&nbsp;
                 </p>
                 <p>
-                  When I'm not coding, you'll find me exploring new technologies, contributing to
-                  open-source projects, or enjoying the great outdoors. I believe that the best
-                  solutions come from understanding both the technical landscape and the human
-                  experience.
+                  When I'm not coding, you'll find me exploring new
+                  technologies, contributing to open-source projects, or
+                  enjoying the great outdoors. I believe that the best solutions
+                  come from understanding both the technical landscape and the
+                  human experience.
                 </p>
               </div>
             </div>
