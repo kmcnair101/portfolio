@@ -192,13 +192,13 @@ export default function Index() {
 
           <div className="flex justify-center space-x-6 mb-12">
             <Button variant="ghost" size="sm" asChild>
-              <a href="#" className="flex items-center">
+              <a href="https://github.com/kmcnair101" className="flex items-center" target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-2" />
                 GitHub
               </a>
             </Button>
             <Button variant="ghost" size="sm" asChild>
-              <a href="#" className="flex items-center">
+              <a href="https://www.linkedin.com/in/kris-mcnair/" className="flex items-center" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-4 w-4 mr-2" />
                 LinkedIn
               </a>
