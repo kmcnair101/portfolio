@@ -71,7 +71,7 @@ export default function Index() {
       <section className="w-full">
         <div className="aspect-[21/9] w-full bg-gradient-to-r from-muted/30 to-muted/60 flex items-center justify-center">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F10294e35110d4a3bb5c955b2f789c3ad%2F314c614a53d54a36a47ab7ebfac292d5"
+            src="/placeholder.svg"
             alt="Portfolio showcase"
             className="w-full h-full object-cover"
             style={{ marginTop: '7px' }}
