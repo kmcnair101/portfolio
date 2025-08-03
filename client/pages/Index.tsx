@@ -178,7 +178,6 @@ export default function Index() {
           
           <div className="space-y-4 mb-12">
             <div className="text-lg">kris.j.mcnair@gmail.com</div>
-            <div className="text-muted-foreground">9549541234</div>
             <div className="text-muted-foreground">Miami, FL</div>
           </div>
 
