@@ -92,7 +92,7 @@ export default function Index() {
                     <h3 className="text-xl font-medium mb-3">
                       <a
                         href={project.link}
-                        className="hover:text-primary transition-colors"
+                        className="hover:text-primary transition-colors underline"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
