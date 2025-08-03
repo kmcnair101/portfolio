@@ -89,7 +89,16 @@ export default function Index() {
               <div key={index} className="border-b border-border pb-12 last:border-b-0">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                   <div className="md:col-span-8">
-                    <h3 className="text-xl font-medium mb-3">{project.title}</h3>
+                    <h3 className="text-xl font-medium mb-3">
+                      <a
+                        href={project.link}
+                        className="hover:text-primary transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {project.title}
+                      </a>
+                    </h3>
                     <p className="text-muted-foreground mb-4 leading-relaxed">
                       {project.description}
                     </p>
@@ -102,11 +111,11 @@ export default function Index() {
                     </div>
                   </div>
                   <div className="md:col-span-3 flex items-center justify-end">
-                    <a href={project.link} className="block group">
+                    <a href={project.link} className="block group" target="_blank" rel="noopener noreferrer">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-20 h-20 object-cover border border-border/50 transition-opacity group-hover:opacity-75"
+                        className="w-32 h-20 object-cover border border-border/50 transition-opacity group-hover:opacity-75"
                       />
                     </a>
                   </div>
