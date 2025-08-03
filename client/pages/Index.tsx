@@ -211,9 +211,11 @@ export default function Index() {
             </Button>
           </div>
           
-          <Button className="px-8">
-            <Mail className="mr-2 h-4 w-4" />
-            Start a Project
+          <Button className="px-8" asChild>
+            <a href="mailto:kris.j.mcnair@gmail.com?subject=New Project Inquiry">
+              <Mail className="mr-2 h-4 w-4" />
+              Start a Project
+            </a>
           </Button>
         </div>
       </section>
