@@ -16,14 +16,14 @@ const portfolioProjects = [
       "Social Running Platform with AI generated training plans and coaching",
     tech: ["React", "Supabase", "Artificial Intelligence"],
     link: "https://onnarun.com",
-    image: "/placeholder.svg",
+    image: "/Screenshot_Onna.png",
   },
   {
     title: "API Gateway",
     description: "Microservices architecture with authentication",
     tech: ["Node.js", "Express", "Redis"],
     link: "#",
-    image: "/favicon.svg",
+    image: "favicon.svg",
   },
 ];
 
