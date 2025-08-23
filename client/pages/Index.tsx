@@ -72,7 +72,7 @@ export default function Index() {
       <section className="w-full">
         <div className="aspect-[21/9] w-full bg-gradient-to-r from-muted/30 to-muted/60 flex items-center justify-center">
           <img
-            src="../../public/igor-omilaev-B3u8bcGYMOY-unsplash.jpg"
+            src="/igor-omilaev-B3u8bcGYMOY-unsplash.jpg"
             alt="Portfolio showcase"
             className="w-full h-full object-cover"
             style={{ marginTop: "7px" }}
