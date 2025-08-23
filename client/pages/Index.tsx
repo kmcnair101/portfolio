@@ -8,7 +8,7 @@ const portfolioProjects = [
     description: "Commercial Real Estate Map Building Application",
     tech: ["React", "Supabase", "Stripe"],
     link: "https://app.creretailmaps.com/",
-    image: "/placeholder.svg",
+    image: "/CREMAPS.png",
   },
   {
     title: "Onna Run",
