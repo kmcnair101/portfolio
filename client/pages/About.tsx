@@ -9,7 +9,7 @@ export default function About() {
             {/* Image */}
             <div>
               <img
-                src="/placeholder.svg"
+                src="/IMG_2630.41f884304aaec39c46e9.jpg"
                 alt="Kris McNair"
                 className="w-full aspect-[4/5] object-cover"
               />
