@@ -23,7 +23,7 @@ const portfolioProjects = [
     description: "Microservices architecture with authentication",
     tech: ["Node.js", "Express", "Redis"],
     link: "#",
-    image: "favicon.svg",
+    image: "/unsplash-image-B3u8bcGYMOY.jpg",
   },
 ];
 
